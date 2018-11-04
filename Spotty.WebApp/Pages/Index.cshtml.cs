@@ -1,31 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System;
-using System.Net;
 using System.Threading.Tasks;
 
 namespace Spotty.WebApp.Pages
 {
     public class IndexModel : PageModel
     {
-        private Authorization Authorization { get; }
+        private IAuthorization Authorization { get; }
 
-        public IndexModel()
+        public IndexModel(IAuthorization authorization)
         {
-            Authorization = new Authorization(
-                "",
-                "",
-                WebUtility.UrlEncode("http://localhost:56081/index/authorizationcallback"));
+            Authorization = authorization;
         }
 
-        public void OnGet()
+        public async Task OnGetAuthorizationCallbackAsync(string code)
         {
-
-        }
-
-        public async Task OnGetAuthorizationCallback(string code)
-        {
-            var token = await Authorization.GetToken(code).ConfigureAwait(false);
+            var token = await Authorization.GetTokenAsync(code).ConfigureAwait(false);
         }
 
         public IActionResult OnPost()

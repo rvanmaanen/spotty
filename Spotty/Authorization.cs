@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace Spotty
 {
-    public class Authorization
+    public interface IAuthorization
+    {
+        Uri GetRedirectUriForCode(string scope);
+
+        Task<string> GetTokenAsync(string code);
+    }
+
+    public class Authorization : IAuthorization
     {
         private string ClientId { get; }
         private string ClientSecret { get; }
@@ -31,7 +38,7 @@ namespace Spotty
             return new Uri($"https://accounts.spotify.com/authorize/?client_id={ClientId}&response_type=code&redirect_uri={encodedRedirectUrl}&scope={scope}");
         }
 
-        public async Task<string> GetToken(string code)
+        public async Task<string> GetTokenAsync(string code)
         {
             var httpClient = HttpClientFactory.Create();
 
