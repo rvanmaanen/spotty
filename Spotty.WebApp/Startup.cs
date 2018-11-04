@@ -4,26 +4,29 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System.Net;
+using System;
 
 namespace Spotty.WebApp
 {
     public class Startup
     {
+        private IConfiguration Configuration { get; }
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IAuthorization>(_ => new Authorization(
+            services.AddHttpClient<ISpotifyHttpClient, SpotifyHttpClient>();
+
+            services.AddTransient<IAuthorization>(serviceProvider => new Authorization(
                 Configuration.GetValue<string>("Spotty:ClientId"),
                 Configuration.GetValue<string>("Spotty:ClientSecret"),
-                WebUtility.UrlEncode(Configuration.GetValue<string>("Spotty:SpotifyAuthenticationCallbackUrl"))));
+                new Uri(Configuration.GetValue<string>("Spotty:SpotifyAuthenticationCallbackUrl")),
+                serviceProvider.GetService<ISpotifyHttpClient>()
+            ));
 
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -35,7 +38,6 @@ namespace Spotty.WebApp
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())

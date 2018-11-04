@@ -8,7 +8,14 @@
     <div class="col-md-12">
         <h1>Authorize</h1>
         <form method="post">
-            <button type="submit">Get token</button>
+            @Html.TextAreaFor(model => model.Token)
+            <button type="submit" id="submit">Get token</button>
         </form>
+
+        <script type="text/javascript">
+            if (document.getElementById('Token').value == '') {
+                document.getElementById('submit').click();
+            }
+        </script>
     </div>
 </div>

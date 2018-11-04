@@ -8,6 +8,8 @@ namespace Spotty.WebApp.Pages
     {
         private IAuthorization Authorization { get; }
 
+        public string Token { get; set; }
+
         public IndexModel(IAuthorization authorization)
         {
             Authorization = authorization;
@@ -15,7 +17,7 @@ namespace Spotty.WebApp.Pages
 
         public async Task OnGetAuthorizationCallbackAsync(string code)
         {
-            var token = await Authorization.GetTokenAsync(code).ConfigureAwait(false);
+            Token = await Authorization.GetTokenAsync(code).ConfigureAwait(false);
         }
 
         public IActionResult OnPost()
