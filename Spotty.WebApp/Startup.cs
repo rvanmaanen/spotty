@@ -21,12 +21,14 @@ namespace Spotty.WebApp
         {
             services.AddHttpClient<ISpotifyHttpClient, SpotifyHttpClient>();
 
-            services.AddTransient<IAuthorization>(serviceProvider => new Authorization(
+            services.AddSingleton<ISpottyApp>(serviceProvider => new SpottyApp(
                 Configuration.GetValue<string>("Spotty:ClientId"),
                 Configuration.GetValue<string>("Spotty:ClientSecret"),
                 new Uri(Configuration.GetValue<string>("Spotty:SpotifyAuthenticationCallbackUrl")),
                 serviceProvider.GetService<ISpotifyHttpClient>()
             ));
+
+            services.AddSingleton<ISpottyState, SpottyState>();
 
             services.Configure<CookiePolicyOptions>(options =>
             {

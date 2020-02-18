@@ -6,16 +6,18 @@
 
 <div class="row">
     <div class="col-md-12">
-        <h1>Authorize</h1>
-        <form method="post">
-            @Html.TextAreaFor(model => model.Token)
-            <button type="submit" id="submit">Get token</button>
+        @if (!Model.IsLoggedIn) {
+        <form method="post" asp-page-handler="login">
+            <button type="submit" id="submit" style="margin: 5px 0 0 0;">Login</button>
+        </form>
+        }
+        
+        <form method="post" asp-page-handler="quiz">
+            <button type="submit" id="quiz" style="margin: 5px 0 0 0;">Next quiz question</button>
         </form>
 
-        <script type="text/javascript">
-            if (document.getElementById('Token').value == '') {
-                document.getElementById('submit').click();
-            }
-        </script>
+        <form method="post" asp-page-handler="repeat">
+            <button type="submit" id="repeat" style="margin: 5px 0 0 0;">Repeat quiz question</button>
+        </form>
     </div>
 </div>
