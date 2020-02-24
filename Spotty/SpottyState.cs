@@ -1,41 +1,67 @@
-﻿using System.Collections.Generic;
+﻿using Spotty.Exceptions;
+using System.Collections.Generic;
 
 namespace Spotty
 {
     public interface ISpottyState
     {
-        (string track, int offset, int duration) CurrentTrack();
+        (string theme, string track, int offset, int duration)[] GetTrackList();
 
-        (string track, int offset, int duration) NextTrack();
+        (string theme, string track, int offset, int duration) GetTrack(int trackNumber);
+
+        int GetCurrentTrackNumber();
+
+        void SetCurrentTrackNumber(int trackNumber);
     }
 
     public class SpottyState : ISpottyState
     {
-        private (string track, int offset, int duration)[] TrackList { get; }
-        private int CurrentTrackNumber = -1;
+        private (string theme, string track, int offset, int duration)[] TrackList { get; }
+        private int CurrentTrackNumber = 0;
 
         public SpottyState()
         {
-            var trackList = new List<(string track, int offset, int duration)>
+            var trackList = new List<(string theme, string track, int offset, int duration)>
             {
-                ("spotify:track:3SGP8It5WDnCONyApJKRTJ", 25000, 5000),
-                ("spotify:track:40bvnVS14b2gF3ZfiTKPAf", 0, 5000),
-                ("spotify:track:6TVfRcgeZJFZ6563OhFVE2", 80000, 5000)
+                ("Classics","spotify:track:3SGP8It5WDnCONyApJKRTJ", 25000, 5000), //queen - who wants to live forever
+                ("Classics","spotify:track:40bvnVS14b2gF3ZfiTKPAf", 0, 5000), //the who - my generation
+                ("Classics","spotify:track:6TVfRcgeZJFZ6563OhFVE2", 80000, 5000), //bruce springsteen - streets of philadelphia,
+                ("Nog een keer!","spotify:track:3SGP8It5WDnCONyApJKRTJ", 25000, 5000), //queen - who wants to live forever
+                ("Nog een keer!","spotify:track:40bvnVS14b2gF3ZfiTKPAf", 0, 5000), //the who - my generation
+                ("Nog een keer!","spotify:track:6TVfRcgeZJFZ6563OhFVE2", 80000, 5000) //bruce springsteen - streets of philadelphia
             };
 
             TrackList = trackList.ToArray();
         }
 
-        public (string track, int offset, int duration) CurrentTrack()
+        public int GetCurrentTrackNumber()
         {
-            return TrackList[CurrentTrackNumber];
+            return CurrentTrackNumber;
         }
 
-        public (string track, int offset, int duration) NextTrack()
+        public (string theme, string track, int offset, int duration)[] GetTrackList()
         {
-            CurrentTrackNumber++;
+            return TrackList;
+        }
 
-            return TrackList[CurrentTrackNumber];
+        public void SetCurrentTrackNumber(int trackNumber)
+        {
+            if(trackNumber < 0 || trackNumber > TrackList.Length)
+            {
+                throw new SpottyException("Invalid tracknumber");
+            }
+
+            CurrentTrackNumber = trackNumber;
+        }
+
+        public (string theme, string track, int offset, int duration) GetTrack(int trackNumber)
+        {
+            if (trackNumber <= 0 || trackNumber > TrackList.Length)
+            {
+                throw new SpottyException("Invalid tracknumber");
+            }
+
+            return TrackList[trackNumber - 1];
         }
     }
 }

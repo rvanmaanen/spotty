@@ -2,22 +2,51 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+
+    int i = 0;
+    string currentTheme = "";
 }
 
 <div class="row">
     <div class="col-md-12">
-        @if (!Model.IsLoggedIn) {
-        <form method="post" asp-page-handler="login">
-            <button type="submit" id="submit" style="margin: 5px 0 0 0;">Login</button>
-        </form>
+        @if (!Model.IsLoggedIn)
+        {
+            <form method="post" asp-page-handler="login">
+                <button type="submit" id="submit" style="margin: 5px 0 0 0;">Login</button>
+            </form>
         }
-        
-        <form method="post" asp-page-handler="quiz">
-            <button type="submit" id="quiz" style="margin: 5px 0 0 0;">Next quiz question</button>
-        </form>
+        else
+        {
+            <strong>Current question: @Model.SpottyState.GetCurrentTrackNumber()</strong>
+            if (@Model.SpottyState.GetCurrentTrackNumber() < @Model.SpottyState.GetTrackList().Length)
+            {
+                <form method="post" asp-page-handler="quiz">
+                    <button type="submit" id="quiz" style="margin: 5px 0 0 0;">Next question</button>
+                </form>
+            }
+            else
+            {
+                <br />
+            }
 
-        <form method="post" asp-page-handler="repeat">
-            <button type="submit" id="repeat" style="margin: 5px 0 0 0;">Repeat quiz question</button>
-        </form>
+            <strong>Set current question number</strong>
+            <form method="post">
+                <input type="text" name="newCurrentTrackNumber" />
+                <button type="submit" asp-page-handler="setcurrent" id="newCurrentTrackNumber" style="margin: 5px 0 0 0;">Set current</button>
+            </form>
+
+            @foreach (var (theme, track, offset, duration) in Model.SpottyState.GetTrackList())
+            {
+                i++;
+                if (currentTheme != theme)
+                {
+                    currentTheme = theme;
+                    <strong>@theme</strong>
+                }
+                <form method="post">
+                    <button type="submit" asp-page-handler="play" asp-route-trackNumber="@i" style="margin: 5px 0 0 0;">Question @i</button>
+                </form>
+            }
+        }
     </div>
 </div>

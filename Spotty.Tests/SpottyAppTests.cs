@@ -17,7 +17,7 @@ namespace Spotty.Tests
 
             var redirectUrl = new Uri("http://localhost:56081/index/authorizationcallback");
             var encodedRedirectUrl = WebUtility.UrlEncode(redirectUrl.AbsoluteUri);
-            var spotifyHttpClient = Mock.Of<ISpotifyHttpClient>();
+            var spotifyHttpClient = Mock.Of<ISpotifyClient>();
             var spottyApp = (ISpottyApp) new SpottyApp(clientId, clientSecret, redirectUrl, spotifyHttpClient);
 
             var authorizationUri = spottyApp.GetUrlForLoginCode();

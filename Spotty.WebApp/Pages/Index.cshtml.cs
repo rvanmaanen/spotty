@@ -7,10 +7,10 @@ namespace Spotty.WebApp.Pages
 {
     public class IndexModel : PageModel
     {
-        public bool IsLoggedIn { get; private set; }
+        public bool IsLoggedIn { get; }
 
+        public ISpottyState SpottyState { get; }
         private ISpottyApp SpottyApp { get; }
-        private ISpottyState SpottyState { get; }
 
         public IndexModel(ISpottyApp spottyApp, ISpottyState spottyState)
         {
@@ -44,19 +44,33 @@ namespace Spotty.WebApp.Pages
                 return;
             }
 
-            var (track, offset, duration) = SpottyState.NextTrack();
+            var newTrackNumber = SpottyState.GetCurrentTrackNumber() + 1;
+
+            var (_, track, offset, duration) = SpottyState.GetTrack(newTrackNumber);
 
             await PlaySong(track, offset, duration).ConfigureAwait(false);
+
+            SpottyState.SetCurrentTrackNumber(newTrackNumber);
         }
 
-        public async Task OnPostRepeat()
+        public void OnPostSetCurrent(int newCurrentTrackNumber)
         {
             if (!ModelState.IsValid)
             {
                 return;
             }
 
-            var (track, offset, duration) = SpottyState.CurrentTrack();
+            SpottyState.SetCurrentTrackNumber(newCurrentTrackNumber);
+        }
+
+        public async Task OnPostPlay(int trackNumber)
+        {
+            if (!ModelState.IsValid)
+            {
+                return;
+            }
+
+            var (_, track, offset, duration) = SpottyState.GetTrack(trackNumber);
 
             await PlaySong(track, offset, duration).ConfigureAwait(false);
         }

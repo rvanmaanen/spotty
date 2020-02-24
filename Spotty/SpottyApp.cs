@@ -22,17 +22,17 @@ namespace Spotty
         private string ClientId { get; }
         private string ClientSecret { get; }
         private Uri RedirectUrl { get; }
-        private ISpotifyHttpClient SpotifyHttpClient { get; }
+        private ISpotifyClient SpotifyClient { get; }
 
         private string AccessToken { get; set; }
         private string RefreshToken { get; set; }
 
-        public SpottyApp(string clientId, string clientSecret, Uri redirectUrl, ISpotifyHttpClient spotifyHttpClient)
+        public SpottyApp(string clientId, string clientSecret, Uri redirectUrl, ISpotifyClient spotifyClient)
         {
             ClientId = clientId;
             ClientSecret = clientSecret;
             RedirectUrl = redirectUrl;
-            SpotifyHttpClient = spotifyHttpClient;
+            SpotifyClient = spotifyClient;
         }
 
         public Uri GetUrlForLoginCode()
@@ -45,7 +45,7 @@ namespace Spotty
 
         public async Task Login(string code)
         {
-            var (accessToken, refreshToken) = await SpotifyHttpClient.GetTokenAsync(ClientId, ClientSecret, RedirectUrl, code).ConfigureAwait(false);
+            var (accessToken, refreshToken) = await SpotifyClient.GetTokensAsync(ClientId, ClientSecret, RedirectUrl, code).ConfigureAwait(false);
 
             AccessToken = accessToken;
             RefreshToken = refreshToken;
@@ -53,21 +53,17 @@ namespace Spotty
 
         public async Task Pause()
         {
-            SpotifyHttpClient.SetAuthorization(AccessToken);
-
-            await SpotifyHttpClient.Pause().ConfigureAwait(false);
+            await SpotifyClient.Pause(AccessToken).ConfigureAwait(false);
         }
 
         public async Task Play(string track, int position = 0)
         {
-            SpotifyHttpClient.SetAuthorization(AccessToken);
-
-            await SpotifyHttpClient.Play(track, position).ConfigureAwait(false);
+            await SpotifyClient.Play(AccessToken, track, position).ConfigureAwait(false);
         }
 
         public bool IsLoggedIn()
         {
-            return AccessToken != null;
+            return !string.IsNullOrEmpty(AccessToken);
         }
     }
 }

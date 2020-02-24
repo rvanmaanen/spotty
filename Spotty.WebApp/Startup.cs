@@ -19,13 +19,18 @@ namespace Spotty.WebApp
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddHttpClient<ISpotifyHttpClient, SpotifyHttpClient>();
+            services.AddHttpClient("SpotifyHttpClient", client =>
+            {
+                client.DefaultRequestHeaders.Remove("Accept");
+                client.DefaultRequestHeaders.Add("Accept", "application/json");
+            })
+            .AddTypedClient<ISpotifyClient>(httpClient => new SpotifyClient(httpClient));
 
             services.AddSingleton<ISpottyApp>(serviceProvider => new SpottyApp(
                 Configuration.GetValue<string>("Spotty:ClientId"),
                 Configuration.GetValue<string>("Spotty:ClientSecret"),
                 new Uri(Configuration.GetValue<string>("Spotty:SpotifyAuthenticationCallbackUrl")),
-                serviceProvider.GetService<ISpotifyHttpClient>()
+                serviceProvider.GetService<ISpotifyClient>()
             ));
 
             services.AddSingleton<ISpottyState, SpottyState>();
