@@ -1,8 +1,8 @@
 {
-	"Title": "Overeenkomst",
+	"Title": "Wat is de overeenkomst tussen deze nummers?",
 	"Questions": [
 		{
-			"Question": "Wat is de overeenkomst tussen deze nummers?",
+			"Question": "",
 			"Answer": "Vuur",
 			"Tracks": [
 				{
@@ -23,7 +23,7 @@
 			]
 		},
 		{
-			"Question": "Wat is de overeenkomst tussen deze nummers?",
+			"Question": "",
 			"Answer": "Zwart / de kleur",
 			"Tracks": [
 				{

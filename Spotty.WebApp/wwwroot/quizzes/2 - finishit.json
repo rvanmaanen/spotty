@@ -1,8 +1,8 @@
 {
-	"Title": "Maak de tekst van het nummer af",
+	"Title": "Hoe gaat de tekst van dit nummer verder?",
 	"Questions": [
 		{
-			"Question": "Hoe gaat de tekst van dit nummer verder?",
+			"Question": "",
 			"Answer": "maar dat dak dat gaat er af",
 			"Tracks": [
 				{
@@ -13,7 +13,7 @@
 			]
 		},
 		{
-			"Question": "Hoe gaat de tekst van dit nummer verder?",
+			"Question": "",
 			"Answer": "and happiness will follow you",
 			"Tracks": [
 				{

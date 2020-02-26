@@ -1,0 +1,32 @@
+{
+	"Title": "Bonusronde!",
+	"Questions": [
+		{
+			"Question": "Wat hebben deze dode zangers en zangeressen met elkaar gemeen?",
+			"Answer": "Ze waren allebei 27 jaar oud toen ze stierven.",
+			"Tracks": [
+				{
+					"SpotifyUrl": "spotify:track:1f3yAtsJtY87CTmM8RLnxf",
+					"Offset": 60000,
+					"Duration": 15000
+				},
+				{
+					"SpotifyUrl": "spotify:track:1L5tZi0izXsi5Kk5OJf4W0",
+					"Offset": 0,
+					"Duration": 13000
+				},
+			]
+		},
+		{
+			"Question": "Voor welke gelegenheid coverde George Michael dit nummer?",
+			"Answer": "Herdenkingsconcert voor Freddy Mercury.",
+			"Tracks": [
+				{
+					"SpotifyUrl": "spotify:track:1kn8Jj0i9IwyO3yDgDyUSR",
+					"Offset": 60000,
+					"Duration": 25000
+				}
+			]
+		}
+	]
+}

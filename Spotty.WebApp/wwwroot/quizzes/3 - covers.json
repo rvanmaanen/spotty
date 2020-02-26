@@ -1,8 +1,8 @@
 {
-	"Title": "Covers",
+	"Title": "Wat is het origineel? Artiest & titel!",
 	"Questions": [
 		{
-			"Question": "Wat is het origineel? Artiest & titel!",
+			"Question": "",
 			"Answer": "Bryan Adams - Summer of 69",
 			"Tracks": [
 				{
@@ -13,7 +13,7 @@
 			]
 		},
 		{
-			"Question": "Wat is het origineel? Artiest & titel!",
+			"Question": "",
 			"Answer": "Pitbull - Timber",
 			"Tracks": [
 				{

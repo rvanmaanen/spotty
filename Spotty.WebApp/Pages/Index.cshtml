@@ -31,10 +31,15 @@
                     {
                         var questionText = question.Question;
                         int j = 1;
+                        int colspan = 2;
 
                         <tr>
-                            <td width="50%" style="padding: 5px;">@questionText</td>
-                            <td style="padding: 5px;">
+                            @if (!string.IsNullOrWhiteSpace(question.Question))
+                            {
+                                colspan = 1;
+                                <td width="50%" style="padding: 5px;">@questionText</td>
+                            }
+                            <td style="padding: 5px;" colspan="@colspan">
                                 @foreach (var track in question.Tracks)
                                 {
                                     var trackText = "Question " + i;
