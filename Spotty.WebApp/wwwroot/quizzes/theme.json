@@ -1,0 +1,42 @@
+{
+	"Title": "Overeenkomst",
+	"Questions": [
+		{
+			"Question": "Wat is de overeenkomst tussen deze nummers?",
+			"Answer": "Vuur",
+			"Tracks": [
+				{
+					"SpotifyUrl": "spotify:track:6YffUZJ2R06kyxyK6onezL",
+					"Offset": 0,
+					"Duration": 5000
+				},
+				{
+					"SpotifyUrl": "spotify:track:7FkyQsWH9mmxoYLCNj4f8y",
+					"Offset": 0,
+					"Duration": 5000
+				},
+				{
+					"SpotifyUrl": "spotify:track:1GTPxha6U7x9ElVxkQw3OK",
+					"Offset": 0,
+					"Duration": 5000
+				}
+			]
+		},
+		{
+			"Question": "Wat is de overeenkomst tussen deze nummers?",
+			"Answer": "Zwart / de kleur",
+			"Tracks": [
+				{
+					"SpotifyUrl": "spotify:track:63T7DJ1AFDD6Bn8VzG6JE8",
+					"Offset": 0,
+					"Duration": 5000
+				},
+				{
+					"SpotifyUrl": "spotify:track:4kLLWz7srcuLKA7Et40PQR",
+					"Offset": 0,
+					"Duration": 5000
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,27 @@
+{
+	"Title": "Maak de tekst van het nummer af",
+	"Questions": [
+		{
+			"Question": "Hoe gaat de tekst van dit nummer verder?",
+			"Answer": "maar dat dak dat gaat er af",
+			"Tracks": [
+				{
+					"SpotifyUrl": "spotify:track:7nFKFcmWf2l7WTyK0g9MHX",
+					"Offset": 0,
+					"Duration": 23300
+				}
+			]
+		},
+		{
+			"Question": "Hoe gaat de tekst van dit nummer verder?",
+			"Answer": "and happiness will follow you",
+			"Tracks": [
+				{
+					"SpotifyUrl": "spotify:track:1AFCfG17PPf29y3xEW9uuR",
+					"Offset": 85000,
+					"Duration": 7300
+				}
+			]
+		}
+	]
+}

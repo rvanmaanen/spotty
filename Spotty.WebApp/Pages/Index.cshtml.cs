@@ -37,40 +37,12 @@ namespace Spotty.WebApp.Pages
             return Redirect(SpottyApp.GetUrlForLoginCode().AbsoluteUri);
         }
 
-        public async Task OnPostQuiz()
+        public async Task OnPostPlay(string track, int offset, int duration)
         {
             if (!ModelState.IsValid)
             {
                 return;
             }
-
-            var newTrackNumber = SpottyState.GetCurrentTrackNumber() + 1;
-
-            var (_, track, offset, duration) = SpottyState.GetTrack(newTrackNumber);
-
-            await PlaySong(track, offset, duration).ConfigureAwait(false);
-
-            SpottyState.SetCurrentTrackNumber(newTrackNumber);
-        }
-
-        public void OnPostSetCurrent(int newCurrentTrackNumber)
-        {
-            if (!ModelState.IsValid)
-            {
-                return;
-            }
-
-            SpottyState.SetCurrentTrackNumber(newCurrentTrackNumber);
-        }
-
-        public async Task OnPostPlay(int trackNumber)
-        {
-            if (!ModelState.IsValid)
-            {
-                return;
-            }
-
-            var (_, track, offset, duration) = SpottyState.GetTrack(trackNumber);
 
             await PlaySong(track, offset, duration).ConfigureAwait(false);
         }

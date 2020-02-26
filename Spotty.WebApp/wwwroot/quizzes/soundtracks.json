@@ -1,0 +1,27 @@
+{
+	"Title": "Soundtracks",
+	"Questions": [
+		{
+			"Question": "Van welke film is dit de soundtrack?",
+			"Answer": "Star Wars",
+			"Tracks": [
+				{
+					"SpotifyUrl": "spotify:track:7a9UUo3zfID7Ik2fTQjRLi",
+					"Offset": 0,
+					"Duration": 5000
+				}
+			]
+		},
+		{
+			"Question": "Van welke film is dit de soundtrack?",
+			"Answer": "Gladiator",
+			"Tracks": [
+				{
+					"SpotifyUrl": "spotify:track:11IXRdEjiH0KL8nh4G1j7d",
+					"Offset": 28000,
+					"Duration": 10000
+				}
+			]
+		}
+	]
+}

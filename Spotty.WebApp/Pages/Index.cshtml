@@ -3,8 +3,8 @@
 @{
     ViewData["Title"] = "Home page";
 
-    int i = 0;
-    string currentTheme = "";
+    int i = 1;
+    string currentTitle = "";
 }
 
 <div class="row">
@@ -17,35 +17,47 @@
         }
         else
         {
-            <strong>Current question: @Model.SpottyState.GetCurrentTrackNumber()</strong>
-            if (@Model.SpottyState.GetCurrentTrackNumber() < @Model.SpottyState.GetTrackList().Length)
+            @foreach (var quiz in Model.SpottyState.GetQuizzes())
             {
-                <form method="post" asp-page-handler="quiz">
-                    <button type="submit" id="quiz" style="margin: 5px 0 0 0;">Next question</button>
-                </form>
-            }
-            else
-            {
-                <br />
-            }
+                <table width="100%" border="1" style="margin: 5px 0 0 0;">
+                    @if (currentTitle != quiz.Title)
+                    {
+                        currentTitle = quiz.Title;
+                        <tr>
+                            <th colspan="2" style="padding: 5px;">@currentTitle</th>
+                        </tr>
+                    }
+                    @foreach (var question in quiz.Questions)
+                    {
+                        var questionText = question.Question;
+                        int j = 1;
 
-            <strong>Set current question number</strong>
-            <form method="post">
-                <input type="text" name="newCurrentTrackNumber" />
-                <button type="submit" asp-page-handler="setcurrent" id="newCurrentTrackNumber" style="margin: 5px 0 0 0;">Set current</button>
-            </form>
+                        <tr>
+                            <td width="50%" style="padding: 5px;">@questionText</td>
+                            <td style="padding: 5px;">
+                                @foreach (var track in question.Tracks)
+                                {
+                                    var trackText = "Question " + i;
+                                    if (question.Tracks.Count > 1)
+                                    {
+                                        trackText += "." + j;
+                                    }
+                                    <div style="float: left; margin-right: 5px;">
+                                        <form method="post" asp-page-handler="play">
+                                            <input type="hidden" name="track" value="@track.SpotifyUrl" />
+                                            <input type="hidden" name="offset" value="@track.Offset" />
+                                            <input type="hidden" name="duration" value="@track.Duration" />
+                                            <button type="submit">@trackText</button>
+                                        </form>
+                                    </div>
+                                    j++;
+                                }
+                            </td>
+                        </tr>
 
-            @foreach (var (theme, track, offset, duration) in Model.SpottyState.GetTrackList())
-            {
-                i++;
-                if (currentTheme != theme)
-                {
-                    currentTheme = theme;
-                    <strong>@theme</strong>
-                }
-                <form method="post">
-                    <button type="submit" asp-page-handler="play" asp-route-trackNumber="@i" style="margin: 5px 0 0 0;">Question @i</button>
-                </form>
+                        i++;
+                    }
+                </table>
             }
         }
     </div>

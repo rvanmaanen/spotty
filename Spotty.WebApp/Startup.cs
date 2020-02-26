@@ -4,17 +4,23 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace Spotty.WebApp
 {
     public class Startup
     {
         private IConfiguration Configuration { get; }
+        private IHostEnvironment HostEnvironment { get; }
 
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IHostEnvironment hostEnvironment)
         {
             Configuration = configuration;
+            HostEnvironment = hostEnvironment;
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -33,19 +39,32 @@ namespace Spotty.WebApp
                 serviceProvider.GetService<ISpotifyClient>()
             ));
 
-            services.AddSingleton<ISpottyState, SpottyState>();
+            services.AddSingleton<ISpottyState>(sp => new SpottyState(GetQuizzes()));
 
             services.Configure<CookiePolicyOptions>(options =>
             {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = _ => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        private SpottyQuiz[] GetQuizzes()
+        {
+            var quizzes = new List<SpottyQuiz>();
+            var quizFiles = HostEnvironment.ContentRootFileProvider.GetDirectoryContents("wwwroot/quizzes");
+            foreach (var quizFile in quizFiles)
+            {
+                using Stream stream = new FileStream(quizFile.PhysicalPath, FileMode.Open, FileAccess.Read);
+                using StreamReader reader = new StreamReader(stream);
+                quizzes.Add(JsonConvert.DeserializeObject<SpottyQuiz>(reader.ReadToEnd()));
+            }
+
+            return quizzes.ToArray();
+        }
+
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -61,7 +80,11 @@ namespace Spotty.WebApp
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            app.UseMvc();
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapRazorPages();
+            });
         }
     }
 }
