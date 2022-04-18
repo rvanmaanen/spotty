@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  spotty.webapp:
+    image: ${DOCKER_REGISTRY-}spottywebapp
+    build:
+      context: ..
+      dockerfile: Spotty.WebApp/Dockerfile
