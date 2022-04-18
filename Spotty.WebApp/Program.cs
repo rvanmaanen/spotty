@@ -11,15 +11,15 @@ static WebApplicationBuilder CreateWebApplicationBuilder(string[] args)
     var builder = WebApplication.CreateBuilder(args);
     var configuration = builder.Configuration;
 
-    // Add services to the container.
     builder.Services.AddRazorPages();
 
-    builder.Services.AddHttpClient("SpotifyHttpClient", client =>
-    {
-        client.DefaultRequestHeaders.Remove("Accept");
-        client.DefaultRequestHeaders.Add("Accept", "application/json");
-    })
-    .AddTypedClient<ISpotifyClient>(httpClient => new SpotifyClient(httpClient));
+    builder.Services
+        .AddHttpClient("SpotifyHttpClient", client =>
+        {
+            client.DefaultRequestHeaders.Remove("Accept");
+            client.DefaultRequestHeaders.Add("Accept", "application/json");
+        })
+        .AddTypedClient<ISpotifyClient>(httpClient => new SpotifyClient(httpClient));
 
     builder.Services.AddSingleton<ISpottyApp>(serviceProvider => new SpottyApp(
         configuration.GetValue<string>("Spotty:ClientId"),
@@ -37,10 +37,12 @@ static SpottyQuiz[] GetQuizzes(IWebHostEnvironment environment)
 {
     var quizzes = new List<SpottyQuiz>();
     var quizFiles = environment.ContentRootFileProvider.GetDirectoryContents("wwwroot/quizzes");
+
     foreach (var quizFile in quizFiles)
     {
         using Stream stream = new FileStream(quizFile.PhysicalPath, FileMode.Open, FileAccess.Read);
         using var reader = new StreamReader(stream);
+
         quizzes.Add(JsonConvert.DeserializeObject<SpottyQuiz>(reader.ReadToEnd()));
     }
 
@@ -51,12 +53,10 @@ static void ConfigurePipeline(WebApplicationBuilder builder)
 {
     var app = builder.Build();
 
-    // Configure the HTTP request pipeline.
     if (!app.Environment.IsDevelopment())
     {
         app.UseExceptionHandler("/Error");
-        // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-        app.UseHsts();
+        app.UseHsts(); // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     }
 
     app.UseHttpsRedirection();
