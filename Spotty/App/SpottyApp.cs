@@ -1,22 +1,8 @@
-﻿using System;
 using System.Net;
-using System.Threading.Tasks;
+using Spotty.Client;
 
-namespace Spotty
+namespace Spotty.App
 {
-    public interface ISpottyApp
-    {
-        Uri GetUrlForLoginCode();
-
-        Task Login(string code);
-
-        Task Pause();
-
-        Task Play(string track, int position);
-
-        bool IsLoggedIn();
-    }
-
     public class SpottyApp : ISpottyApp
     {
         private string ClientId { get; }
@@ -24,8 +10,8 @@ namespace Spotty
         private Uri RedirectUrl { get; }
         private ISpotifyClient SpotifyClient { get; }
 
-        private string AccessToken { get; set; }
-        private string RefreshToken { get; set; }
+        private string AccessToken { get; set; } = string.Empty;
+        private string RefreshToken { get; set; } = string.Empty;
 
         public SpottyApp(string clientId, string clientSecret, Uri redirectUrl, ISpotifyClient spotifyClient)
         {
@@ -45,7 +31,7 @@ namespace Spotty
 
         public async Task Login(string code)
         {
-            var (accessToken, refreshToken) = await SpotifyClient.GetTokensAsync(ClientId, ClientSecret, RedirectUrl, code).ConfigureAwait(false);
+            (var accessToken, var refreshToken) = await SpotifyClient.GetTokensAsync(ClientId, ClientSecret, RedirectUrl, code).ConfigureAwait(false);
 
             AccessToken = accessToken;
             RefreshToken = refreshToken;

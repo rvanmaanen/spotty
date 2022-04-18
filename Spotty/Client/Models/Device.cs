@@ -1,13 +1,13 @@
-﻿namespace Spotty
+namespace Spotty.Client.Models
 {
     public class Device
     {
-        public string Id;
+        public string Id = string.Empty;
         public bool Is_Active;
         public bool Is_Private_Session;
         public bool Is_Restricted;
-        public string Name;
-        public string Type;
+        public string Name = string.Empty;
+        public string Type = string.Empty;
         public int Volume_Percent;
     }
 }

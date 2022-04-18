@@ -1,8 +1,9 @@
-using Xunit;
-using FluentAssertions;
-using System;
-using Moq;
 using System.Net;
+using FluentAssertions;
+using Moq;
+using Spotty.App;
+using Spotty.Client;
+using Xunit;
 
 namespace Spotty.Tests
 {
@@ -13,12 +14,12 @@ namespace Spotty.Tests
         {
             const string clientId = "1234";
             const string clientSecret = "4567";
-            const string scope = "app-remote-control";
+            const string scope = "user-modify-playback-state+user-read-playback-state";
 
-            var redirectUrl = new Uri("http://localhost:56081/index/authorizationcallback");
+            var redirectUrl = new Uri("https://localhost:5001/index/authorizationcallback");
             var encodedRedirectUrl = WebUtility.UrlEncode(redirectUrl.AbsoluteUri);
             var spotifyHttpClient = Mock.Of<ISpotifyClient>();
-            var spottyApp = (ISpottyApp) new SpottyApp(clientId, clientSecret, redirectUrl, spotifyHttpClient);
+            var spottyApp = (ISpottyApp)new SpottyApp(clientId, clientSecret, redirectUrl, spotifyHttpClient);
 
             var authorizationUri = spottyApp.GetUrlForLoginCode();
 

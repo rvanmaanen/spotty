@@ -1,17 +1,72 @@
-﻿using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
+using Newtonsoft.Json;
+using Spotty.App;
+using Spotty.Client;
 
-namespace Spotty.WebApp
+var builder = CreateWebApplicationBuilder(args);
+
+ConfigurePipeline(builder);
+
+static WebApplicationBuilder CreateWebApplicationBuilder(string[] args)
 {
-    public static class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateWebHostBuilder(args).Build().Run();
-        }
+    var builder = WebApplication.CreateBuilder(args);
+    var configuration = builder.Configuration;
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+    // Add services to the container.
+    builder.Services.AddRazorPages();
+
+    builder.Services.AddHttpClient("SpotifyHttpClient", client =>
+    {
+        client.DefaultRequestHeaders.Remove("Accept");
+        client.DefaultRequestHeaders.Add("Accept", "application/json");
+    })
+    .AddTypedClient<ISpotifyClient>(httpClient => new SpotifyClient(httpClient));
+
+    builder.Services.AddSingleton<ISpottyApp>(serviceProvider => new SpottyApp(
+        configuration.GetValue<string>("Spotty:ClientId"),
+        configuration.GetValue<string>("Spotty:ClientSecret"),
+        new Uri(configuration.GetValue<string>("Spotty:SpotifyAuthenticationCallbackUrl")),
+        serviceProvider.GetRequiredService<ISpotifyClient>()
+    ));
+
+    builder.Services.AddSingleton<ISpottyState>(sp => new SpottyState(GetQuizzes(builder.Environment)));
+
+    return builder;
+}
+
+static SpottyQuiz[] GetQuizzes(IWebHostEnvironment environment)
+{
+    var quizzes = new List<SpottyQuiz>();
+    var quizFiles = environment.ContentRootFileProvider.GetDirectoryContents("wwwroot/quizzes");
+    foreach (var quizFile in quizFiles)
+    {
+        using Stream stream = new FileStream(quizFile.PhysicalPath, FileMode.Open, FileAccess.Read);
+        using var reader = new StreamReader(stream);
+        quizzes.Add(JsonConvert.DeserializeObject<SpottyQuiz>(reader.ReadToEnd()));
     }
+
+    return quizzes.ToArray();
+}
+
+static void ConfigurePipeline(WebApplicationBuilder builder)
+{
+    var app = builder.Build();
+
+    // Configure the HTTP request pipeline.
+    if (!app.Environment.IsDevelopment())
+    {
+        app.UseExceptionHandler("/Error");
+        // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+        app.UseHsts();
+    }
+
+    app.UseHttpsRedirection();
+    app.UseStaticFiles();
+
+    app.UseRouting();
+
+    app.UseAuthorization();
+
+    app.MapRazorPages();
+
+    app.Run();
 }

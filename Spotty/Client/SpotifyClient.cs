@@ -1,22 +1,9 @@
-﻿using Spotty.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Spotty.Client.Models;
 
-namespace Spotty
+namespace Spotty.Client
 {
-    public interface ISpotifyClient
-    {
-        Task<(string accessToken, string refreshToken)> GetTokensAsync(string clientId, string clientSecret, Uri redirectUrl, string code);
-
-        Task Pause(string accessToken);
-
-        Task Play(string accessToken, string track, int position);
-    }
-
     public class SpotifyClient : ISpotifyClient
     {
         private const string SpotifyBaseUrl = "https://api.spotify.com";
@@ -49,8 +36,8 @@ namespace Spotty
                 ThrowException(response, content);
             }
 
-            var result = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(content);
-            
+            var result = JsonConvert.DeserializeObject<dynamic>(content);
+
             return (result.access_token, result.refresh_token);
         }
 
@@ -95,19 +82,19 @@ namespace Spotty
                 ThrowException(response, content);
             }
 
-            var result = Newtonsoft.Json.JsonConvert.DeserializeObject<SpotifyDevices>(content);
+            var result = JsonConvert.DeserializeObject<SpotifyDevices>(content);
             if (result.Devices.Length == 0)
             {
-                throw new SpottyException("Failed to find any devices to use");
+                throw new SpotifyException("Failed to find any devices to use");
             }
 
-            var smartPhone = result.Devices.SingleOrDefault(device => device.Type == "Smartphone");
-            if (smartPhone != null)
+            var activeDevice = result.Devices.SingleOrDefault(device => device.Is_Active);
+            if (activeDevice != null)
             {
-                return smartPhone.Id;
+                return activeDevice.Id;
             }
 
-            throw new SpottyException("Failed to find any devices to use");
+            throw new SpotifyException("No active device found");
         }
 
         private static async Task GetContentAndThrowException(HttpResponseMessage response)
@@ -119,9 +106,9 @@ namespace Spotty
 
         private static void ThrowException(HttpResponseMessage response, string content)
         {
-            var error = Newtonsoft.Json.JsonConvert.DeserializeObject(content);
+            var error = JsonConvert.DeserializeObject(content);
 
-            throw new SpottyException($"Spotify API returned status code {response.StatusCode} with content {error}");
+            throw new SpotifyException($"Spotify API returned status code {response.StatusCode} with content {error}");
         }
 
         private void SetAuthorizationHeader(string accessToken)

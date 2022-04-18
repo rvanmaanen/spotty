@@ -1,15 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Threading;
-using System.Threading.Tasks;
+using Spotty.App;
 
 namespace Spotty.WebApp.Pages
 {
     public class IndexModel : PageModel
     {
         public bool IsLoggedIn { get; }
-
         public ISpottyState SpottyState { get; }
+
         private ISpottyApp SpottyApp { get; }
 
         public IndexModel(ISpottyApp spottyApp, ISpottyState spottyState)
@@ -51,14 +50,12 @@ namespace Spotty.WebApp.Pages
         {
             await SpottyApp.Play(track, offset).ConfigureAwait(false);
 
-            #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-            Task.Run(() =>
-            {
-                Thread.Sleep(duration);
+            _ = Task.Run(async () =>
+              {
+                  await Task.Delay(duration).ConfigureAwait(false);
 
-                SpottyApp.Pause();
-            });
-            #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+                  await SpottyApp.Pause().ConfigureAwait(false);
+              });
         }
     }
 }

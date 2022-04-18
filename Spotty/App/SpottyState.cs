@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Spotty
+namespace Spotty.App
 {
     public interface ISpottyState
     {
@@ -24,23 +22,23 @@ namespace Spotty
 
     public class SpottyQuiz
     {
-        public string Title { get; set; }
+        public string Title { get; set; } = string.Empty;
 
-        public List<SpottyQuestion> Questions { get; set; }
+        public List<SpottyQuestion> Questions { get; set; } = new List<SpottyQuestion>();
     }
 
     public class SpottyQuestion
     {
-        public string Question { get; set; }
+        public string Question { get; set; } = string.Empty;
 
-        public string Answer { get; set; }
+        public string Answer { get; set; } = string.Empty;
 
-        public List<SpottyTrack> Tracks { get; set; }
+        public List<SpottyTrack> Tracks { get; set; } = new List<SpottyTrack>();
     }
 
     public class SpottyTrack
     {
-        public string SpotifyUrl { get; set; }
+        public string SpotifyUrl { get; set; } = string.Empty;
 
         public int Offset { get; set; }
 
