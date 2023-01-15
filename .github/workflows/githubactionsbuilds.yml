@@ -35,6 +35,11 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }} 
       
+      # Run dotnet test
+      - name: dotnet test
+        run: |
+          dotnet test
+
       # Run dotnet build and publish a Docker image
       - name: dotnet build and publish
         run: |
