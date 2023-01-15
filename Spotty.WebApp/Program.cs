@@ -9,7 +9,7 @@ ConfigurePipeline(builder);
 static WebApplicationBuilder CreateWebApplicationBuilder(string[] args)
 {
     var builder = WebApplication.CreateBuilder(args);
-    var configuration = builder.Configuration;
+    var configuration = builder.Configuration!;
 
     builder.Services.AddRazorPages();
 
@@ -22,9 +22,9 @@ static WebApplicationBuilder CreateWebApplicationBuilder(string[] args)
         .AddTypedClient<ISpotifyClient>(httpClient => new SpotifyClient(httpClient));
 
     builder.Services.AddSingleton<ISpottyApp>(serviceProvider => new SpottyApp(
-        configuration.GetValue<string>("Spotty:ClientId"),
-        configuration.GetValue<string>("Spotty:ClientSecret"),
-        new Uri(configuration.GetValue<string>("Spotty:SpotifyAuthenticationCallbackUrl")),
+        configuration.GetValue<string>("Spotty:ClientId") ?? throw new ArgumentException("Spotty:ClientId is not configured"),
+        configuration.GetValue<string>("Spotty:ClientSecret") ?? throw new ArgumentException("Spotty:ClientSecret is not configured"),
+        new Uri(configuration.GetValue<string>("Spotty:SpotifyAuthenticationCallbackUrl") ?? throw new ArgumentException("Spotty:SpotifyAuthenticationCallbackUrl is not configured")),
         serviceProvider.GetRequiredService<ISpotifyClient>()
     ));
 
@@ -38,12 +38,23 @@ static SpottyQuiz[] GetQuizzes(IWebHostEnvironment environment)
     var quizzes = new List<SpottyQuiz>();
     var quizFiles = environment.ContentRootFileProvider.GetDirectoryContents("wwwroot/quizzes");
 
+    if (quizFiles is null || !quizFiles.Any())
+    {
+        throw new ArgumentException("No quizzes found in wwwroot");
+    }
+
     foreach (var quizFile in quizFiles)
     {
-        using Stream stream = new FileStream(quizFile.PhysicalPath, FileMode.Open, FileAccess.Read);
+        using Stream stream = new FileStream(quizFile.PhysicalPath!, FileMode.Open, FileAccess.Read);
         using var reader = new StreamReader(stream);
 
-        quizzes.Add(JsonConvert.DeserializeObject<SpottyQuiz>(reader.ReadToEnd()));
+        var quiz = JsonConvert.DeserializeObject<SpottyQuiz>(reader.ReadToEnd());
+        if (quiz is null)
+        {
+            throw new ArgumentException($"Quiz {quizFile.PhysicalPath} could not be deserialized");
+        }
+
+        quizzes.Add(quiz);
     }
 
     return quizzes.ToArray();

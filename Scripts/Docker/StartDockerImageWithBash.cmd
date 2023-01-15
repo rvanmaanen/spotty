@@ -1,1 +1,0 @@
-docker run -it --rm rvanmaanen/Spotty /bin/bash

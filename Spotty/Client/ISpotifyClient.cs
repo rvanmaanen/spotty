@@ -1,13 +1,12 @@
-namespace Spotty.Client
+namespace Spotty.Client;
+
+public interface ISpotifyClient
 {
-    public interface ISpotifyClient
-    {
-        Task<(string accessToken, string refreshToken)> GetTokensAsync(string clientId, string clientSecret, Uri redirectUrl, string code);
+    Task<(string accessToken, string refreshToken)> GetTokensAsync(string clientId, string clientSecret, Uri redirectUrl, string code);
 
-        Task Pause(string accessToken);
+    Task Pause(string accessToken);
 
-        Task Play(string accessToken, string track, int position);
-    }
+    Task Play(string accessToken, string track, int position);
 }
 
 

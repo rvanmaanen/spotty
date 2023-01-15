@@ -2,60 +2,59 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Spotty.App;
 
-namespace Spotty.WebApp.Pages
+namespace Spotty.WebApp.Pages;
+
+public class IndexModel : PageModel
 {
-    public class IndexModel : PageModel
+    public bool IsLoggedIn { get; }
+    public ISpottyState SpottyState { get; }
+
+    private ISpottyApp SpottyApp { get; }
+
+    public IndexModel(ISpottyApp spottyApp, ISpottyState spottyState)
     {
-        public bool IsLoggedIn { get; }
-        public ISpottyState SpottyState { get; }
+        SpottyApp = spottyApp;
+        SpottyState = spottyState;
 
-        private ISpottyApp SpottyApp { get; }
+        IsLoggedIn = SpottyApp.IsLoggedIn();
+    }
 
-        public IndexModel(ISpottyApp spottyApp, ISpottyState spottyState)
+    public async Task<IActionResult> OnGetAuthorizationCallbackAsync(string code)
+    {
+        await SpottyApp.Login(code).ConfigureAwait(false);
+
+        return Redirect("/");
+    }
+
+    public IActionResult OnPostLogin()
+    {
+        if (!ModelState.IsValid)
         {
-            SpottyApp = spottyApp;
-            SpottyState = spottyState;
-
-            IsLoggedIn = SpottyApp.IsLoggedIn();
+            return Page();
         }
 
-        public async Task<IActionResult> OnGetAuthorizationCallbackAsync(string code)
-        {
-            await SpottyApp.Login(code).ConfigureAwait(false);
+        return Redirect(SpottyApp.GetUrlForLoginCode().AbsoluteUri);
+    }
 
-            return Redirect("/");
+    public async Task OnPostPlay(string track, int offset, int duration)
+    {
+        if (!ModelState.IsValid)
+        {
+            return;
         }
 
-        public IActionResult OnPostLogin()
-        {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+        await PlaySong(track, offset, duration).ConfigureAwait(false);
+    }
 
-            return Redirect(SpottyApp.GetUrlForLoginCode().AbsoluteUri);
-        }
+    private async Task PlaySong(string track, int offset, int duration)
+    {
+        await SpottyApp.Play(track, offset).ConfigureAwait(false);
 
-        public async Task OnPostPlay(string track, int offset, int duration)
-        {
-            if (!ModelState.IsValid)
-            {
-                return;
-            }
+        _ = Task.Run(async () =>
+          {
+              await Task.Delay(duration).ConfigureAwait(false);
 
-            await PlaySong(track, offset, duration).ConfigureAwait(false);
-        }
-
-        private async Task PlaySong(string track, int offset, int duration)
-        {
-            await SpottyApp.Play(track, offset).ConfigureAwait(false);
-
-            _ = Task.Run(async () =>
-              {
-                  await Task.Delay(duration).ConfigureAwait(false);
-
-                  await SpottyApp.Pause().ConfigureAwait(false);
-              });
-        }
+              await SpottyApp.Pause().ConfigureAwait(false);
+          });
     }
 }

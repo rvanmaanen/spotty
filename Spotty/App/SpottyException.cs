@@ -1,17 +1,16 @@
-﻿namespace Spotty.App
+﻿namespace Spotty.App;
+
+public class SpotifyException : Exception
 {
-    public class SpotifyException : Exception
+    public SpotifyException()
     {
-        public SpotifyException()
-        {
-        }
+    }
 
-        public SpotifyException(string message) : base(message)
-        {
-        }
+    public SpotifyException(string message) : base(message)
+    {
+    }
 
-        public SpotifyException(string message, Exception innerException) : base(message, innerException)
-        {
-        }
+    public SpotifyException(string message, Exception innerException) : base(message, innerException)
+    {
     }
 }

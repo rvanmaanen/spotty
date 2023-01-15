@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
+		.github\workflows\githubactionsbuilds.yml = .github\workflows\githubactionsbuilds.yml
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -17,6 +18,12 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spotty.WebApp", "Spotty.WebApp\Spotty.WebApp.csproj", "{9FD1013F-A48C-4EA7-97D0-2DE0ECBE56CE}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "DockerCompose\docker-compose.dcproj", "{CD03101D-92C4-4B40-9B48-7E4B0ACC262F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{877D9039-8077-4105-BFA0-CCD96169EACB}"
+	ProjectSection(SolutionItems) = preProject
+		Infra\main.bicep = Infra\main.bicep
+		Infra\parameters.json = Infra\parameters.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +50,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{877D9039-8077-4105-BFA0-CCD96169EACB} = {B4F97C7F-4ABC-4B3A-8912-4B872390DF08}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1F77585C-9A69-4CBE-ACFF-2AF0250E71FA}

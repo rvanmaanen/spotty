@@ -1,15 +1,14 @@
-namespace Spotty.App
+namespace Spotty.App;
+
+public interface ISpottyApp
 {
-    public interface ISpottyApp
-    {
-        Uri GetUrlForLoginCode();
+    Uri GetUrlForLoginCode();
 
-        Task Login(string code);
+    Task Login(string code);
 
-        Task Pause();
+    Task Pause();
 
-        Task Play(string track, int position);
+    Task Play(string track, int position);
 
-        bool IsLoggedIn();
-    }
+    bool IsLoggedIn();
 }
