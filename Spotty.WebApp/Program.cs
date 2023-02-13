@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 using Spotty.App;
 using Spotty.Client;
 
@@ -28,36 +27,9 @@ static WebApplicationBuilder CreateWebApplicationBuilder(string[] args)
         serviceProvider.GetRequiredService<ISpotifyClient>()
     ));
 
-    builder.Services.AddSingleton<ISpottyState>(sp => new SpottyState(GetQuizzes(builder.Environment)));
+    builder.Services.AddTransient<ISpottyState>(sp => new SpottyState(builder.Environment.ContentRootPath));
 
     return builder;
-}
-
-static SpottyQuiz[] GetQuizzes(IWebHostEnvironment environment)
-{
-    var quizzes = new List<SpottyQuiz>();
-    var quizFiles = environment.ContentRootFileProvider.GetDirectoryContents("wwwroot/quizzes");
-
-    if (quizFiles is null || !quizFiles.Any())
-    {
-        throw new ArgumentException("No quizzes found in wwwroot");
-    }
-
-    foreach (var quizFile in quizFiles)
-    {
-        using Stream stream = new FileStream(quizFile.PhysicalPath!, FileMode.Open, FileAccess.Read);
-        using var reader = new StreamReader(stream);
-
-        var quiz = JsonConvert.DeserializeObject<SpottyQuiz>(reader.ReadToEnd());
-        if (quiz is null)
-        {
-            throw new ArgumentException($"Quiz {quizFile.PhysicalPath} could not be deserialized");
-        }
-
-        quizzes.Add(quiz);
-    }
-
-    return quizzes.ToArray();
 }
 
 static void ConfigurePipeline(WebApplicationBuilder builder)

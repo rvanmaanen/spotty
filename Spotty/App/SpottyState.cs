@@ -1,3 +1,6 @@
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+
 namespace Spotty.App;
 
 public interface ISpottyState
@@ -7,16 +10,37 @@ public interface ISpottyState
 
 public class SpottyState : ISpottyState
 {
-    private SpottyQuiz[] Quizzes { get; }
+    private readonly string _contentRootFilePath;
 
-    public SpottyState(SpottyQuiz[] quizzes)
+    public SpottyState(string contentRootFilePath)
     {
-        Quizzes = quizzes;
+        _contentRootFilePath = contentRootFilePath;
     }
 
     public SpottyQuiz[] GetQuizzes()
     {
-        return Quizzes;
+        var quizzes = new List<SpottyQuiz>();
+        var quizFilesPath = Path.Combine(_contentRootFilePath, "wwwroot/quizzes");
+
+        var quizFiles = Directory.GetFiles(quizFilesPath);
+
+        if (quizFiles is null || !quizFiles.Any())
+        {
+            throw new ArgumentException("No quizzes found in wwwroot");
+        }
+
+        foreach (var quizFile in quizFiles)
+        {
+            var quiz = JsonConvert.DeserializeObject<SpottyQuiz>(File.ReadAllText(quizFile));
+            if (quiz is null)
+            {
+                throw new ArgumentException($"Quiz {quizFile} could not be deserialized");
+            }
+
+            quizzes.Add(quiz);
+        }
+
+        return quizzes.ToArray();
     }
 }
 
@@ -38,7 +62,13 @@ public class SpottyQuestion
 
 public class SpottyTrack
 {
-    public string SpotifyUrl { get; set; } = string.Empty;
+    private string _spotifyUrl = string.Empty;
+
+    public string SpotifyUrl
+    {
+        get => _spotifyUrl;
+        set => _spotifyUrl = Regex.Replace(value, "\\?.*", "");
+    }
 
     public int Offset { get; set; }
 

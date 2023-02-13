@@ -19,7 +19,7 @@
         {
             @foreach (var quiz in Model.SpottyState.GetQuizzes())
             {
-                <table width="100%" border="1" style="margin: 5px 0 0 0;">
+                <table width="100%" border="1" style="margin: 5px 0 15px; 0;">
                     @if (currentTitle != quiz.Title)
                     {
                         currentTitle = quiz.Title;
@@ -42,10 +42,10 @@
                             <td style="padding: 5px;" colspan="@colspan">
                                 @foreach (var track in question.Tracks)
                                 {
-                                    var trackText = "Question " + i;
+                                    var trackText = "Question ";
                                     if (question.Tracks.Count > 1)
                                     {
-                                        trackText += "." + j;
+                                        trackText += " " + j;
                                     }
                                     <div style="float: left; margin-right: 5px;">
                                         <form method="post" asp-page-handler="play">
