@@ -1,0 +1,115 @@
+{
+  "Title": "Round 5: Covers! Name the song, original artist and cover artist. 1 point for each.",
+  "Questions": [
+    {
+      "Question": "",
+      "Answer": "Kate Bush - Running up that hill (covered by Placebo)",
+      "Tracks": [
+        {
+          "SpotifyUrl": "https://open.spotify.com/track/0uYVJ8z5kgMayMNPJA6Cz9?si=8cfcb083c1b642e5",
+          "Offset": 0,
+          "Duration": 5000
+        }
+      ]
+    },
+    {
+      "Question": "",
+      "Answer": "The Cure - Just like heaven (covered by Katie Melua)",
+      "Tracks": [
+        {
+          "SpotifyUrl": "https://open.spotify.com/track/2tHj8vYlXs8bpqeaHHqUAZ?si=4b3346e0fb9f45a2",
+          "Offset": 0,
+          "Duration": 5000
+        }
+      ]
+    },
+    {
+      "Question": "",
+      "Answer": "Jimmy Hendrix - All along the watchtower (covered by U2)",
+      "Tracks": [
+        {
+          "SpotifyUrl": "https://open.spotify.com/track/3jbgBiIM5vMUr2RcLNYghI?si=c272513b1c404936",
+          "Offset": 0,
+          "Duration": 5000
+        }
+      ]
+    },
+    {
+      "Question": "",
+      "Answer": "Talk Talk - It's my life (covered by No Doubt)",
+      "Tracks": [
+        {
+          "SpotifyUrl": "https://open.spotify.com/track/1OutzYv6YiN93lrT3pJsWR?si=05123b1612a54956",
+          "Offset": 0,
+          "Duration": 5000
+        }
+      ]
+    },
+    {
+      "Question": "",
+      "Answer": "Dolly Parton - I will always love you (covered by Whitney Houston)",
+      "Tracks": [
+        {
+          "SpotifyUrl": "https://open.spotify.com/track/4eHbdreAnSOrDDsFfc4Fpm?si=e601c84742f24467",
+          "Offset": 0,
+          "Duration": 5000
+        }
+      ]
+    },
+    {
+      "Question": "",
+      "Answer": "Nirvana - Smells like teen spirit (covered by Tori Amos)",
+      "Tracks": [
+        {
+          "SpotifyUrl": "https://open.spotify.com/track/1kWqRB6PHLM9QTfaXuHpIV?si=2ee95a6135784937",
+          "Offset": 0,
+          "Duration": 5000
+        }
+      ]
+    },
+    {
+      "Question": "",
+      "Answer": "Simon Garfunkel - Mrs. Robinson (covered by Lemonheads)",
+      "Tracks": [
+        {
+          "SpotifyUrl": "https://open.spotify.com/track/1Hnv9uDIokwi4nkcVUyS0X?si=6406b01749334b47",
+          "Offset": 0,
+          "Duration": 5000
+        }
+      ]
+    },
+    {
+      "Question": "",
+      "Answer": "Police - I'll be missing you (covered by Puff Daddy)",
+      "Tracks": [
+        {
+          "SpotifyUrl": "https://open.spotify.com/track/3QHONiXGMGU3z68mQInncF?si=ef829ca20e534353",
+          "Offset": 0,
+          "Duration": 5000
+        }
+      ]
+    },
+    {
+      "Question": "",
+      "Answer": "Backstreet Boys - As long as you love me (covered by The Kik)",
+      "Tracks": [
+        {
+          "SpotifyUrl": "https://open.spotify.com/track/5wOWp3hllZdaeG29Czds3a?si=7d1bb483d9ae4a6a",
+          "Offset": 0,
+          "Duration": 5000
+        }
+      ]
+    },
+    {
+      "Question": "",
+      "Answer": "Eminem - Lose yourself (covered by Kasey Chambers)",
+      "Tracks": [
+        {
+          "SpotifyUrl": "https://open.spotify.com/track/4v0Lu9dboiL2jeGvtvBiQT?si=5ac95bef3c734f0b",
+          "Offset": 0,
+          "Duration": 5000
+        }
+      ]
+    }
+  ]
+}

@@ -3,7 +3,6 @@
 @{
     ViewData["Title"] = "Home page";
 
-    int i = 1;
     string currentTitle = "";
 }
 
@@ -19,6 +18,8 @@
         {
             @foreach (var quiz in Model.SpottyState.GetQuizzes())
             {
+                int i = 1;
+
                 <table width="100%" border="1" style="margin: 5px 0 15px; 0;">
                     @if (currentTitle != quiz.Title)
                     {
@@ -42,10 +43,10 @@
                             <td style="padding: 5px;" colspan="@colspan">
                                 @foreach (var track in question.Tracks)
                                 {
-                                    var trackText = "Question ";
+                                    var trackText = "Question " + i.ToString().PadLeft(2, '0');
                                     if (question.Tracks.Count > 1)
                                     {
-                                        trackText += " " + j;
+                                        trackText += "." + j;
                                     }
                                     <div style="float: left; margin-right: 5px;">
                                         <form method="post" asp-page-handler="play">

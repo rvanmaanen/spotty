@@ -1,32 +1,81 @@
 {
 	"Title": "Bonusronde!",
-	"Questions": [
-		{
-			"Question": "Wat hebben deze dode zangers en zangeressen met elkaar gemeen?",
-			"Answer": "Ze waren allebei 27 jaar oud toen ze stierven.",
-			"Tracks": [
-				{
-					"SpotifyUrl": "spotify:track:1f3yAtsJtY87CTmM8RLnxf",
-					"Offset": 60000,
-					"Duration": 15000
-				},
-				{
-					"SpotifyUrl": "spotify:track:1L5tZi0izXsi5Kk5OJf4W0",
-					"Offset": 0,
-					"Duration": 13000
-				},
-			]
-		},
-		{
-			"Question": "Voor welke gelegenheid coverde George Michael dit nummer?",
-			"Answer": "Herdenkingsconcert voor Freddy Mercury.",
-			"Tracks": [
-				{
-					"SpotifyUrl": "spotify:track:1kn8Jj0i9IwyO3yDgDyUSR",
-					"Offset": 60000,
-					"Duration": 25000
-				}
-			]
-		}
-	]
+  "Questions": [
+    {
+      "Question": "Which film is this the soundtrack of?",
+      "Answer": "Shrek 2",
+      "Tracks": [
+        {
+          "SpotifyUrl": "https://open.spotify.com/track/7FQSD5JjWqGtS1BaQQiT6V?si=2441bbfed2004fba",
+          "Offset": 0,
+          "Duration": 10000
+        }
+      ]
+    },
+    {
+      "Question": "Which artist and which song do you hear? Why did she have to give up her royalties to the song?",
+      "Answer": "",
+      "Tracks": [
+        {
+          "SpotifyUrl": "https://open.spotify.com/track/6ocbgoVGwYJhOv1GgI9NsF?si=c2a78e65ffd84092",
+          "Offset": 0,
+          "Duration": 10000
+        }
+      ]
+    },
+    {
+      "Question": "Which film is this the soundtrack of?",
+      "Answer": "",
+      "Tracks": [
+        {
+          "SpotifyUrl": "https://open.spotify.com/track/3YKptz29AsOlm7WAVnztBh?si=96013fbf5ab3477c",
+          "Offset": 0,
+          "Duration": 10000
+        }
+      ]
+    },
+    {
+      "Question": "What was Freddy Mercury's real name?",
+      "Answer": "",
+      "Tracks": [
+        {
+          "SpotifyUrl": "https://open.spotify.com/track/7iAqvWLgZzXvH38lA06QZg?si=2dafec348a9943f6",
+          "Offset": 0,
+          "Duration": 10000
+        }
+      ]
+    },
+    {
+      "Question": "The Weeknd samples which 80s megahit in 'Blinding Lights'?",
+      "Answer": "",
+      "Tracks": [
+        {
+          "SpotifyUrl": "https://open.spotify.com/track/0VjIjW4GlUZAMYd2vXMi3b?si=3028539b52eb4e27",
+          "Offset": 0,
+          "Duration": 10000
+        }
+      ]
+    },
+    {
+      "Question": "Name 3 members of the 27 club?",
+      "Answer": "",
+      "Tracks": [
+        {
+          "SpotifyUrl": "https://open.spotify.com/track/48YkpE5enOln5c7jXSTuHL?si=cfb0d66676c7461e",
+          "Offset": 0,
+          "Duration": 10000
+        },
+        {
+          "SpotifyUrl": "https://open.spotify.com/track/1L5tZi0izXsi5Kk5OJf4W0?si=6765681aef3749b7",
+          "Offset": 0,
+          "Duration": 10000
+        },
+        {
+          "SpotifyUrl": "https://open.spotify.com/track/0NWPxcsf5vdjdiFUI8NgkP?si=ac3a0af707994f5a",
+          "Offset": 0,
+          "Duration": 10000
+        }
+      ]
+    }
+  ]
 }
