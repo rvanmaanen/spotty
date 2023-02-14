@@ -19,51 +19,48 @@
             @foreach (var quiz in Model.SpottyState.GetQuizzes())
             {
                 int i = 1;
+                
+                @if (currentTitle != quiz.Title)
+                {
+                    currentTitle = quiz.Title;
 
-                <table width="100%" border="1" style="margin: 5px 0 15px; 0;">
-                    @if (currentTitle != quiz.Title)
+                    <div style="clear: both; margin-bottom: 10px;">
+                      <h3 style="margin: 10px 0px 0px 0px; padding: 0;">@currentTitle.Substring(0, currentTitle.IndexOf("!"))</h3>
+                      <span>@currentTitle.Substring(currentTitle.IndexOf("! ") + 2)</span>
+                    </div>
+                }
+
+                @foreach (var question in quiz.Questions)
+                {
+                    var questionText = question.Question;
+                    int j = 1;
+
+                    @if (!string.IsNullOrWhiteSpace(question.Question))
                     {
-                        currentTitle = quiz.Title;
-                        <tr>
-                            <th colspan="2" style="padding: 5px;">@currentTitle</th>
-                        </tr>
+                      <div style="clear: both"><h4 style="margin: 0px; padding: 0px;">@questionText</h4></div>
                     }
-                    @foreach (var question in quiz.Questions)
+
+                    @foreach (var track in question.Tracks)
                     {
-                        var questionText = question.Question;
-                        int j = 1;
-                        int colspan = 2;
+                        var questionButtonText = "Question " + i;
+                        if (question.Tracks.Count > 1)
+                        {
+                            questionButtonText += "." + j;
+                        }
 
-                        <tr>
-                            @if (!string.IsNullOrWhiteSpace(question.Question))
-                            {
-                                colspan = 1;
-                                <td width="50%" style="padding: 5px;">@questionText</td>
-                            }
-                            <td style="padding: 5px;" colspan="@colspan">
-                                @foreach (var track in question.Tracks)
-                                {
-                                    var trackText = "Question " + i.ToString().PadLeft(2, '0');
-                                    if (question.Tracks.Count > 1)
-                                    {
-                                        trackText += "." + j;
-                                    }
-                                    <div style="float: left; margin-right: 5px;">
-                                        <form method="post" asp-page-handler="play">
-                                            <input type="hidden" name="track" value="@track.SpotifyUrl" />
-                                            <input type="hidden" name="offset" value="@track.Offset" />
-                                            <input type="hidden" name="duration" value="@track.Duration" />
-                                            <button type="submit">@trackText</button>
-                                        </form>
-                                    </div>
-                                    j++;
-                                }
-                            </td>
-                        </tr>
-
-                        i++;
+                        <div style="float: left; margin: 0px 5px 10px 0px">
+                            <form method="post" asp-page-handler="play">
+                                <input type="hidden" name="track" value="@track.SpotifyUrl" />
+                                <input type="hidden" name="offset" value="@track.Offset" />
+                                <input type="hidden" name="duration" value="@track.Duration" />
+                                <button type="submit">@questionButtonText</button>
+                            </form>
+                        </div>
+                        j++;
                     }
-                </table>
+
+                    i++;
+                }
             }
         }
     </div>

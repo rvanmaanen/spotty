@@ -1,5 +1,5 @@
 {
-	"Title": "Round 3: Valentine! Song title & artist please. 1 point for each.",
+	"Title": "Round 3: Valentine! Points for: Song title & artist.",
   "Questions": [
     {
       "Question": "",
@@ -14,12 +14,12 @@
     },
     {
       "Question": "",
-      "Answer": "Wet Wet Wet - Love is all around",
+      "Answer": "Bill Medley & Jennifer Warnes - (I've had) the time of my life",
       "Tracks": [
         {
-          "SpotifyUrl": "https://open.spotify.com/track/0PCGfA36HrVPmsBZJ57zOU?si=b9ece228148b4a28",
-          "Offset": 0,
-          "Duration": 10000
+          "SpotifyUrl": "https://open.spotify.com/track/6W7ztLBiRzBN46ZaPAcQ0F?si=3f23806004b14314",
+          "Offset": 100000,
+          "Duration": 12000
         }
       ]
     },

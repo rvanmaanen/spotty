@@ -10,5 +10,7 @@ public interface ISpottyApp
 
     Task Play(string track, int position);
 
+    Task PlayAndPause(string track, int position, int duration);
+
     bool IsLoggedIn();
 }

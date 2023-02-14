@@ -1,5 +1,5 @@
 {
-  "Title": "Round 5: Covers! Name the song, original artist and cover artist. 1 point for each.",
+  "Title": "Round 5: Covers! Points for: Song title, original artist and cover artist.",
   "Questions": [
     {
       "Question": "",
@@ -7,8 +7,8 @@
       "Tracks": [
         {
           "SpotifyUrl": "https://open.spotify.com/track/0uYVJ8z5kgMayMNPJA6Cz9?si=8cfcb083c1b642e5",
-          "Offset": 0,
-          "Duration": 5000
+          "Offset": 138000,
+          "Duration": 9000
         }
       ]
     },
@@ -18,8 +18,8 @@
       "Tracks": [
         {
           "SpotifyUrl": "https://open.spotify.com/track/2tHj8vYlXs8bpqeaHHqUAZ?si=4b3346e0fb9f45a2",
-          "Offset": 0,
-          "Duration": 5000
+          "Offset": 28000,
+          "Duration": 10000
         }
       ]
     },
@@ -29,8 +29,8 @@
       "Tracks": [
         {
           "SpotifyUrl": "https://open.spotify.com/track/3jbgBiIM5vMUr2RcLNYghI?si=c272513b1c404936",
-          "Offset": 0,
-          "Duration": 5000
+          "Offset": 50000,
+          "Duration": 10000
         }
       ]
     },
@@ -40,8 +40,8 @@
       "Tracks": [
         {
           "SpotifyUrl": "https://open.spotify.com/track/1OutzYv6YiN93lrT3pJsWR?si=05123b1612a54956",
-          "Offset": 0,
-          "Duration": 5000
+          "Offset": 40000,
+          "Duration": 10000
         }
       ]
     },
@@ -52,7 +52,7 @@
         {
           "SpotifyUrl": "https://open.spotify.com/track/4eHbdreAnSOrDDsFfc4Fpm?si=e601c84742f24467",
           "Offset": 0,
-          "Duration": 5000
+          "Duration": 10000
         }
       ]
     },
@@ -62,8 +62,8 @@
       "Tracks": [
         {
           "SpotifyUrl": "https://open.spotify.com/track/1kWqRB6PHLM9QTfaXuHpIV?si=2ee95a6135784937",
-          "Offset": 0,
-          "Duration": 5000
+          "Offset": 83000,
+          "Duration": 12000
         }
       ]
     },
@@ -73,8 +73,8 @@
       "Tracks": [
         {
           "SpotifyUrl": "https://open.spotify.com/track/1Hnv9uDIokwi4nkcVUyS0X?si=6406b01749334b47",
-          "Offset": 0,
-          "Duration": 5000
+          "Offset": 32000,
+          "Duration": 10000
         }
       ]
     },
@@ -84,8 +84,8 @@
       "Tracks": [
         {
           "SpotifyUrl": "https://open.spotify.com/track/3QHONiXGMGU3z68mQInncF?si=ef829ca20e534353",
-          "Offset": 0,
-          "Duration": 5000
+          "Offset": 21000,
+          "Duration": 10000
         }
       ]
     },
@@ -95,8 +95,8 @@
       "Tracks": [
         {
           "SpotifyUrl": "https://open.spotify.com/track/5wOWp3hllZdaeG29Czds3a?si=7d1bb483d9ae4a6a",
-          "Offset": 0,
-          "Duration": 5000
+          "Offset": 30000,
+          "Duration": 15000
         }
       ]
     },
@@ -106,8 +106,8 @@
       "Tracks": [
         {
           "SpotifyUrl": "https://open.spotify.com/track/4v0Lu9dboiL2jeGvtvBiQT?si=5ac95bef3c734f0b",
-          "Offset": 0,
-          "Duration": 5000
+          "Offset": 180000,
+          "Duration": 10000
         }
       ]
     }

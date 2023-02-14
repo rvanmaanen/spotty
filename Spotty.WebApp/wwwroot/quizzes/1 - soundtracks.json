@@ -1,5 +1,5 @@
 {
-	"Title": "Round 1: Soundtracks! Movie title, song title & composer/artist please. 1 point for each.",
+	"Title": "Round 1: Soundtracks! Points for: Movie title, song title & composer/artist.",
   "Questions": [
     {
       "Question": "",
@@ -8,7 +8,7 @@
         {
           "SpotifyUrl": "spotify:track:7a9UUo3zfID7Ik2fTQjRLi",
           "Offset": 0,
-          "Duration": 10000
+          "Duration": 5000
         }
       ]
     },
@@ -19,7 +19,7 @@
         {
           "SpotifyUrl": "spotify:track:11IXRdEjiH0KL8nh4G1j7d",
           "Offset": 28000,
-          "Duration": 10000
+          "Duration": 5000
         }
       ]
     },
@@ -29,8 +29,8 @@
       "Tracks": [
         {
           "SpotifyUrl": "spotify:track:2olVm1lHicpveMAo4AUDRB",
-          "Offset": 62000,
-          "Duration": 10000
+          "Offset": 0,
+          "Duration": 5000
         }
       ]
     },
@@ -41,18 +41,18 @@
         {
           "SpotifyUrl": "spotify:track:3SGP8It5WDnCONyApJKRTJ",
           "Offset": 169400,
-          "Duration": 10000
+          "Duration": 5000
         }
       ]
     },
     {
       "Question": "",
-      "Answer": "Lord of the Rings (Howard Shore & Enya - The council of Elrond (Theme for Aragorn & Arwen))",
+      "Answer": "Lord of the Rings (Howard Shore & Enya - The council of Elrond)",
       "Tracks": [
         {
           "SpotifyUrl": "spotify:track:3Knohqfb9jeYzL6wMZiWLM",
           "Offset": 37000,
-          "Duration": 10000
+          "Duration": 5000
         }
       ]
     },
@@ -62,8 +62,8 @@
       "Tracks": [
         {
           "SpotifyUrl": "spotify:track:4yLSpYlcO0jPPLTa3nW8zN",
-          "Offset": 120000,
-          "Duration": 10000
+          "Offset": 139000,
+          "Duration": 5000
         }
       ]
     },
@@ -74,7 +74,7 @@
         {
           "SpotifyUrl": "spotify:track:2TZbQZXOuR8osP2AK8yYMN",
           "Offset": 157000,
-          "Duration": 10000
+          "Duration": 5000
         }
       ]
     },
@@ -85,7 +85,7 @@
         {
           "SpotifyUrl": "spotify:track:0o9ivTBX7mjTnaUYF4Gk6t",
           "Offset": 40000,
-          "Duration": 10000
+          "Duration": 5000
         }
       ]
     },
@@ -96,7 +96,7 @@
         {
           "SpotifyUrl": "spotify:track:6VObnIkLVruX4UVyxWhlqm",
           "Offset": 125000,
-          "Duration": 10000
+          "Duration": 5000
         }
       ]
     },
@@ -107,7 +107,7 @@
         {
           "SpotifyUrl": "spotify:track:0PCGfA36HrVPmsBZJ57zOU",
           "Offset": 60000,
-          "Duration": 10000
+          "Duration": 5000
         }
       ]
     }

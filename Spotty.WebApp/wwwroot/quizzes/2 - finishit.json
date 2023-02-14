@@ -1,5 +1,5 @@
 {
-	"Title": "Round 2: Finish the lyrics! Next bit of songtext, song title & artist please. 1 point for each.",
+	"Title": "Round 2: Finish the lyrics! Points for: Next bit of songtext, song title & artist.",
   "Questions": [
     {
       "Question": "",
@@ -25,12 +25,12 @@
     },
     {
       "Question": "",
-      "Answer": "and I fly up to the sun (George Baker Selection - Paloma Blanca)",
+      "Answer": "it's a new day, it's a new way (George Baker Selection - Paloma Blanca)",
       "Tracks": [
         {
           "SpotifyUrl": "spotify:track:37dPgiT3cY5XFbG3Ldq7zv",
-          "Offset": 147000,
-          "Duration": 10500
+          "Offset": 43000,
+          "Duration": 7500
         }
       ]
     },
@@ -73,8 +73,8 @@
       "Tracks": [
         {
           "SpotifyUrl": "https://open.spotify.com/track/3z8h0TU7ReDPLIbEnYhWZb?si=e8258ee0f1dc4b5a",
-          "Offset": 183000,
-          "Duration": 19000
+          "Offset": 193000,
+          "Duration": 9000
         }
       ]
     }

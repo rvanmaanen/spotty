@@ -1,5 +1,5 @@
 {
-	"Title": "Bonusronde!",
+	"Title": "Round 6: It's the final rondeeee! Points for: Answers.",
   "Questions": [
     {
       "Question": "Which film is this the soundtrack of?",
@@ -18,18 +18,7 @@
       "Tracks": [
         {
           "SpotifyUrl": "https://open.spotify.com/track/6ocbgoVGwYJhOv1GgI9NsF?si=c2a78e65ffd84092",
-          "Offset": 0,
-          "Duration": 10000
-        }
-      ]
-    },
-    {
-      "Question": "Which film is this the soundtrack of?",
-      "Answer": "",
-      "Tracks": [
-        {
-          "SpotifyUrl": "https://open.spotify.com/track/3YKptz29AsOlm7WAVnztBh?si=96013fbf5ab3477c",
-          "Offset": 0,
+          "Offset": 45000,
           "Duration": 10000
         }
       ]
@@ -40,18 +29,18 @@
       "Tracks": [
         {
           "SpotifyUrl": "https://open.spotify.com/track/7iAqvWLgZzXvH38lA06QZg?si=2dafec348a9943f6",
-          "Offset": 0,
+          "Offset": 45000,
           "Duration": 10000
         }
       ]
     },
     {
-      "Question": "The Weeknd samples which 80s megahit in 'Blinding Lights'?",
+      "Question": "Which 80s megahit has heavily influenced The Weeknd's song Blinding Lights?",
       "Answer": "",
       "Tracks": [
         {
           "SpotifyUrl": "https://open.spotify.com/track/0VjIjW4GlUZAMYd2vXMi3b?si=3028539b52eb4e27",
-          "Offset": 0,
+          "Offset": 15000,
           "Duration": 10000
         }
       ]
@@ -62,17 +51,77 @@
       "Tracks": [
         {
           "SpotifyUrl": "https://open.spotify.com/track/48YkpE5enOln5c7jXSTuHL?si=cfb0d66676c7461e",
-          "Offset": 0,
+          "Offset": 45000,
           "Duration": 10000
         },
         {
           "SpotifyUrl": "https://open.spotify.com/track/1L5tZi0izXsi5Kk5OJf4W0?si=6765681aef3749b7",
-          "Offset": 0,
+          "Offset": 45000,
           "Duration": 10000
         },
         {
           "SpotifyUrl": "https://open.spotify.com/track/0NWPxcsf5vdjdiFUI8NgkP?si=ac3a0af707994f5a",
-          "Offset": 0,
+          "Offset": 45000,
+          "Duration": 10000
+        }
+      ]
+    },
+    {
+      "Question": "What is the other song that gets Marcel started?",
+      "Answer": "",
+      "Tracks": [
+        {
+          "SpotifyUrl": "https://open.spotify.com/track/4J0DbyODwZJcmIAiTSJfMF?si=2d98d40cdff046b3",
+          "Offset": 5000,
+          "Duration": 10000
+        },
+        {
+          "SpotifyUrl": "https://open.spotify.com/track/7DBafN97VFAJjm3sMev3KG?si=74cedf2b588245ca",
+          "Offset": 62000,
+          "Duration": 10000
+        }
+      ]
+    },
+    {
+      "Question": "What goes after '(What's the story)' in Oasis' album title?",
+      "Answer": "",
+      "Tracks": [
+        {
+          "SpotifyUrl": "https://open.spotify.com/track/7ppPZa3TRUSGKaks9wH7VT?si=b3afe3b8af3a4dee",
+          "Offset": 70000,
+          "Duration": 10000
+        }
+      ]
+    },
+    {
+      "Question": "About which computergame is this song?",
+      "Answer": "",
+      "Tracks": [
+        {
+          "SpotifyUrl": "https://open.spotify.com/track/6HjtZWIo0bh0KLD8Tq4ujR?si=61d460233d544b4b",
+          "Offset": 85000,
+          "Duration": 10000
+        }
+      ]
+    },
+    {
+      "Question": "This song was used in the intro movie of what TV show?​",
+      "Answer": "",
+      "Tracks": [
+        {
+          "SpotifyUrl": "https://open.spotify.com/track/2LUVo82IKIpCuBNSaqF0G8?si=fb4379bb8c414a02",
+          "Offset": 7000,
+          "Duration": 12000
+        }
+      ]
+    },
+    {
+      "Question": "What is on fire in this song?​",
+      "Answer": "",
+      "Tracks": [
+        {
+          "SpotifyUrl": "https://open.spotify.com/track/7FkyQsWH9mmxoYLCNj4f8y?si=97ca018880774791",
+          "Offset": 130000,
           "Duration": 10000
         }
       ]

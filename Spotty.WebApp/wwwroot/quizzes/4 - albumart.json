@@ -1,5 +1,5 @@
 {
-  "Title": "Round 4: Album art! Guess the artist, album title and which year the album was released. 1 point for each.",
+  "Title": "Round 4: Album art! Points for: Artist, album title and which year the album was released.",
   "Questions": [
     {
       "Question": "",
@@ -8,7 +8,7 @@
         {
           "SpotifyUrl": "https://open.spotify.com/track/6dGnYIeXmHdcikdzNNDMm2?si=0055c9b25d7745a3",
           "Offset": 0,
-          "Duration": 60000
+          "Duration": 30000
         }
       ]
     },
@@ -19,7 +19,7 @@
         {
           "SpotifyUrl": "https://open.spotify.com/track/2RsAajgo0g7bMCHxwH3Sk0?si=c94e24dfafc949d7",
           "Offset": 0,
-          "Duration": 60000
+          "Duration": 30000
         }
       ]
     },
@@ -30,7 +30,7 @@
         {
           "SpotifyUrl": "https://open.spotify.com/track/7Gx2q0ueNwvDp2BOZYGCMO?si=92d328608f6e48ce",
           "Offset": 0,
-          "Duration": 60000
+          "Duration": 30000
         }
       ]
     },
@@ -41,7 +41,7 @@
         {
           "SpotifyUrl": "https://open.spotify.com/track/2OPmhk5vO4qiYE4LEAC9hs?si=37d2c129d73f4c53",
           "Offset": 0,
-          "Duration": 60000
+          "Duration": 30000
         }
       ]
     },
@@ -52,7 +52,7 @@
         {
           "SpotifyUrl": "https://open.spotify.com/track/3PzsbWSQdLCKDLxn7YZfkM?si=416afa3de5c144d1",
           "Offset": 0,
-          "Duration": 60000
+          "Duration": 30000
         }
       ]
     },
@@ -63,7 +63,7 @@
         {
           "SpotifyUrl": "https://open.spotify.com/track/6L89mwZXSOwYl76YXfX13s?si=7fd1349079944f37",
           "Offset": 0,
-          "Duration": 60000
+          "Duration": 30000
         }
       ]
     },
@@ -74,7 +74,7 @@
         {
           "SpotifyUrl": "https://open.spotify.com/track/1u8c2t2Cy7UBoG4ArRcF5g?si=8fa1d96bfd974c39",
           "Offset": 0,
-          "Duration": 60000
+          "Duration": 30000
         }
       ]
     },
@@ -85,7 +85,7 @@
         {
           "SpotifyUrl": "https://open.spotify.com/track/3di5hcvxxciiqwMH1jarhY?si=ba44007fe0b94d22",
           "Offset": 0,
-          "Duration": 60000
+          "Duration": 30000
         }
       ]
     },
@@ -96,7 +96,7 @@
         {
           "SpotifyUrl": "https://open.spotify.com/track/1zB4vmk8tFRmM9UULNzbLB?si=766b3617ddf3468f",
           "Offset": 0,
-          "Duration": 60000
+          "Duration": 30000
         }
       ]
     },
@@ -107,7 +107,7 @@
         {
           "SpotifyUrl": "https://open.spotify.com/track/0SiywuOBRcynK0uKGWdCnn?si=db4ba89fb5d447c2",
           "Offset": 0,
-          "Duration": 60000
+          "Duration": 30000
         }
       ]
     }

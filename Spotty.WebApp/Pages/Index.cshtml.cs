@@ -48,13 +48,6 @@ public class IndexModel : PageModel
 
     private async Task PlaySong(string track, int offset, int duration)
     {
-        await SpottyApp.Play(track, offset).ConfigureAwait(false);
-
-        _ = Task.Run(async () =>
-          {
-              await Task.Delay(duration).ConfigureAwait(false);
-
-              await SpottyApp.Pause().ConfigureAwait(false);
-          });
+        await SpottyApp.PlayAndPause(track, offset, duration).ConfigureAwait(false);
     }
 }
