@@ -1,3 +1,5 @@
+using Polly;
+using Polly.Extensions.Http;
 using Spotty.App;
 using Spotty.Client;
 
@@ -12,13 +14,23 @@ static WebApplicationBuilder CreateWebApplicationBuilder(string[] args)
 
     builder.Services.AddRazorPages();
 
+    var policyRegistry = builder.Services.AddPolicyRegistry();
+    policyRegistry.Add(
+        "retry",
+        HttpPolicyExtensions
+            .HandleTransientHttpError()
+            .WaitAndRetryAsync(
+                3,
+                retryAttempt => TimeSpan.FromMilliseconds(Math.Pow(2, retryAttempt) * 100)));
+
     builder.Services
         .AddHttpClient("SpotifyHttpClient", client =>
         {
             client.DefaultRequestHeaders.Remove("Accept");
             client.DefaultRequestHeaders.Add("Accept", "application/json");
         })
-        .AddTypedClient<ISpotifyClient>(httpClient => new SpotifyClient(httpClient));
+        .AddTypedClient<ISpotifyClient>(httpClient => new SpotifyClient(httpClient))
+        .AddPolicyHandlerFromRegistry("retry");
 
     builder.Services.AddSingleton<ISpottyApp>(serviceProvider => new SpottyApp(
         configuration.GetValue<string>("Spotty:ClientId") ?? throw new ArgumentException("Spotty:ClientId is not configured"),
