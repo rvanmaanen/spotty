@@ -21,7 +21,7 @@ public class IndexModel : PageModel
 
     public async Task<IActionResult> OnGetAuthorizationCallbackAsync(string code)
     {
-        await SpottyApp.Login(code).ConfigureAwait(false);
+        await SpottyApp.Login(code);
 
         return Redirect("/");
     }
@@ -43,11 +43,6 @@ public class IndexModel : PageModel
             return;
         }
 
-        await PlaySong(track, offset, duration).ConfigureAwait(false);
-    }
-
-    private async Task PlaySong(string track, int offset, int duration)
-    {
-        await SpottyApp.PlayAndPause(track, offset, duration).ConfigureAwait(false);
+        await SpottyApp.PlayAndPause(track, offset, duration);
     }
 }

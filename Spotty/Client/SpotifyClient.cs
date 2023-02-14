@@ -28,8 +28,8 @@ public class SpotifyClient : ISpotifyClient
             { "code", code },
             { "redirect_uri", redirectUrl.AbsoluteUri }
         };
-        var response = await HttpClient.PostAsync(uri, new FormUrlEncodedContent(body)).ConfigureAwait(false);
-        var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+        var response = await HttpClient.PostAsync(uri, new FormUrlEncodedContent(body));
+        var content = await response.Content.ReadAsStringAsync();
 
         if (!response.IsSuccessStatusCode)
         {
@@ -49,14 +49,14 @@ public class SpotifyClient : ISpotifyClient
     {
         SetAuthorizationHeader(accessToken);
 
-        var deviceId = await GetDeviceId().ConfigureAwait(false);
+        var deviceId = await GetDeviceId();
         var uri = new Uri($"{SpotifyPlayerUrl}/pause?device_id={deviceId}");
         var body = new Dictionary<string, string>();
-        var response = await HttpClient.PutAsync(uri, new FormUrlEncodedContent(body)).ConfigureAwait(false);
+        var response = await HttpClient.PutAsync(uri, new FormUrlEncodedContent(body));
 
         if (!response.IsSuccessStatusCode)
         {
-            await GetContentAndThrowException(response).ConfigureAwait(false);
+            await GetContentAndThrowException(response);
         }
     }
 
@@ -64,22 +64,22 @@ public class SpotifyClient : ISpotifyClient
     {
         SetAuthorizationHeader(accessToken);
 
-        var deviceId = await GetDeviceId().ConfigureAwait(false);
+        var deviceId = await GetDeviceId();
         var uri = new Uri($"{SpotifyPlayerUrl}/play?device_id={deviceId}");
         var body = new StringContent("{ \"uris\": [\"" + track + "\"], \"position_ms\": " + position + "}");
-        var response = await HttpClient.PutAsync(uri, body).ConfigureAwait(false);
+        var response = await HttpClient.PutAsync(uri, body);
 
         if (!response.IsSuccessStatusCode)
         {
-            await GetContentAndThrowException(response).ConfigureAwait(false);
+            await GetContentAndThrowException(response);
         }
     }
 
     private async Task<string> GetDeviceId()
     {
         var uri = new Uri($"{SpotifyPlayerUrl}/devices");
-        var response = await HttpClient.GetAsync(uri).ConfigureAwait(false);
-        var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+        var response = await HttpClient.GetAsync(uri);
+        var content = await response.Content.ReadAsStringAsync();
 
         if (!response.IsSuccessStatusCode)
         {
@@ -108,7 +108,7 @@ public class SpotifyClient : ISpotifyClient
 
     private static async Task GetContentAndThrowException(HttpResponseMessage response)
     {
-        var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+        var content = await response.Content.ReadAsStringAsync();
 
         ThrowException(response, content);
     }

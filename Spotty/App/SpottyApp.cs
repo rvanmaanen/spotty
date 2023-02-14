@@ -35,7 +35,7 @@ public class SpottyApp : ISpottyApp, IDisposable
 
     public async Task Login(string code)
     {
-        (var accessToken, var refreshToken) = await SpotifyClient.GetTokensAsync(ClientId, ClientSecret, RedirectUrl, code).ConfigureAwait(false);
+        (var accessToken, var refreshToken) = await SpotifyClient.GetTokensAsync(ClientId, ClientSecret, RedirectUrl, code);
 
         AccessToken = accessToken;
         RefreshToken = refreshToken;
@@ -43,12 +43,12 @@ public class SpottyApp : ISpottyApp, IDisposable
 
     public async Task Pause()
     {
-        await SpotifyClient.Pause(AccessToken).ConfigureAwait(false);
+        await SpotifyClient.Pause(AccessToken);
     }
 
     public async Task Play(string track, int position)
     {
-        await SpotifyClient.Play(AccessToken, track, position).ConfigureAwait(false);
+        await SpotifyClient.Play(AccessToken, track, position);
     }
 
     public async Task PlayAndPause(string track, int position, int duration)
@@ -58,15 +58,15 @@ public class SpottyApp : ISpottyApp, IDisposable
 
         var pauseCancellationToken = _pauseCancellationTokenSource.Token;
 
-        await SpotifyClient.Play(AccessToken, track, position).ConfigureAwait(false);
+        await SpotifyClient.Play(AccessToken, track, position);
 
         _ = Task.Run(async () =>
         {
-            await Task.Delay(duration, pauseCancellationToken).ConfigureAwait(false);
+            await Task.Delay(duration, pauseCancellationToken);
 
             if (!pauseCancellationToken.IsCancellationRequested)
             {
-                await SpotifyClient.Pause(AccessToken).ConfigureAwait(false);
+                await SpotifyClient.Pause(AccessToken);
             }
         }, pauseCancellationToken);
     }
