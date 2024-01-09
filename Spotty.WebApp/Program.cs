@@ -10,7 +10,7 @@ ConfigurePipeline(builder);
 static WebApplicationBuilder CreateWebApplicationBuilder(string[] args)
 {
     var builder = WebApplication.CreateBuilder(args);
-    var configuration = builder.Configuration!;
+    var configuration = builder.Configuration;
 
     builder.Services.AddRazorPages();
 
