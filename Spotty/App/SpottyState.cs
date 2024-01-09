@@ -24,7 +24,7 @@ public class SpottyState : ISpottyState
 
         var quizFiles = Directory.GetFiles(quizFilesPath);
 
-        if (quizFiles is null || !quizFiles.Any())
+        if (quizFiles is null || quizFiles.Length == 0)
         {
             throw new ArgumentException("No quizzes found in wwwroot");
         }
