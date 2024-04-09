@@ -1,60 +1,30 @@
 {
-	"Title": "Round 3: Valentine! Points for: Song title & artist.",
-  "Questions": [
+  "Title": "Round 3: Valentine",
+  "Tracks": [
     {
-      "Question": "",
-      "Answer": "Celine Dion - My heart will go on",
-      "Tracks": [
-        {
-          "SpotifyUrl": "https://open.spotify.com/track/33LC84JgLvK2KuW43MfaNq?si=804bc80615334a88",
-          "Offset": 0,
-          "Duration": 10000
-        }
-      ]
+      "SpotifyUrl": "spotify:track:33LC84JgLvK2KuW43MfaNq",
+      "Offset": 0,
+      "Duration": 10000
     },
     {
-      "Question": "",
-      "Answer": "Bill Medley & Jennifer Warnes - (I've had) the time of my life",
-      "Tracks": [
-        {
-          "SpotifyUrl": "https://open.spotify.com/track/6W7ztLBiRzBN46ZaPAcQ0F?si=3f23806004b14314",
-          "Offset": 100000,
-          "Duration": 12000
-        }
-      ]
+      "SpotifyUrl": "spotify:track:6W7ztLBiRzBN46ZaPAcQ0F",
+      "Offset": 100000,
+      "Duration": 12000
     },
     {
-      "Question": "",
-      "Answer": "Goo Goo Dolls - Iris",
-      "Tracks": [
-        {
-          "SpotifyUrl": "https://open.spotify.com/track/6vrUTGn5p8IrfTZ0J6sIVM?si=1fe2911ed5f746bb",
-          "Offset": 0,
-          "Duration": 10000
-        }
-      ]
+      "SpotifyUrl": "spotify:track:6vrUTGn5p8IrfTZ0J6sIVM",
+      "Offset": 0,
+      "Duration": 10000
     },
     {
-      "Question": "",
-      "Answer": "Berlin - Take my breath away",
-      "Tracks": [
-        {
-          "SpotifyUrl": "https://open.spotify.com/track/15MJ5NThPjj6xhPcts8MiY?si=079e06529ab04333",
-          "Offset": 0,
-          "Duration": 10000
-        }
-      ]
+      "SpotifyUrl": "spotify:track:15MJ5NThPjj6xhPcts8MiY",
+      "Offset": 0,
+      "Duration": 10000
     },
     {
-      "Question": "",
-      "Answer": "Olivia Newton-John - Hopelessly devoted to you",
-      "Tracks": [
-        {
-          "SpotifyUrl": "https://open.spotify.com/track/5BUq9bdtsm3LWw5laJeJ4R?si=d055562860054874",
-          "Offset": 0,
-          "Duration": 10000
-        }
-      ]
+      "SpotifyUrl": "spotify:track:5BUq9bdtsm3LWw5laJeJ4R",
+      "Offset": 0,
+      "Duration": 10000
     }
   ]
 }

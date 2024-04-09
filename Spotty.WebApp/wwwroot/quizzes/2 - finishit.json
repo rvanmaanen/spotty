@@ -1,82 +1,40 @@
 {
-	"Title": "Round 2: Finish the lyrics! Points for: Next bit of songtext, song title & artist.",
-  "Questions": [
+	"Title": "Round 2: Finish the lyrics",
+  "Tracks": [
     {
-      "Question": "",
-      "Answer": "then happiness will follow you (Dune - Rainbow to the stars)",
-      "Tracks": [
-        {
-          "SpotifyUrl": "spotify:track:1AFCfG17PPf29y3xEW9uuR",
-          "Offset": 109000,
-          "Duration": 4500
-        }
-      ]
+      "SpotifyUrl": "spotify:track:1AFCfG17PPf29y3xEW9uuR",
+      "Offset": 109000,
+      "Duration": 4500
     },
     {
-      "Question": "",
-      "Answer": "there's someone, who needs you' (Falco - Jeanny)",
-      "Tracks": [
-        {
-          "SpotifyUrl": "spotify:track:5T0FdfvcOuzsRsQhcbWAH8",
-          "Offset": 88000,
-          "Duration": 5000
-        }
-      ]
+      "SpotifyUrl": "spotify:track:5T0FdfvcOuzsRsQhcbWAH8",
+      "Offset": 88000,
+      "Duration": 5000
     },
     {
-      "Question": "",
-      "Answer": "it's a new day, it's a new way (George Baker Selection - Paloma Blanca)",
-      "Tracks": [
-        {
-          "SpotifyUrl": "spotify:track:37dPgiT3cY5XFbG3Ldq7zv",
-          "Offset": 43000,
-          "Duration": 7500
-        }
-      ]
+      "SpotifyUrl": "spotify:track:37dPgiT3cY5XFbG3Ldq7zv",
+      "Offset": 43000,
+      "Duration": 7500
     },
     {
-      "Question": "",
-      "Answer": "and when you're done, I'll make you do it all again (Tones and I - Dance Monkey)",
-      "Tracks": [
-        {
-          "SpotifyUrl": "spotify:track:2XU0oxnq2qxCpomAAuJY8K",
-          "Offset": 113500,
-          "Duration": 7500
-        }
-      ]
+      "SpotifyUrl": "spotify:track:2XU0oxnq2qxCpomAAuJY8K",
+      "Offset": 113500,
+      "Duration": 7500
     },
     {
-      "Question": "",
-      "Answer": "didn't know I was lost (Avici - Wake me up)",
-      "Tracks": [
-        {
-          "SpotifyUrl": "https://open.spotify.com/track/0nrRP2bk19rLc0orkWPQk2",
-          "Offset": 151000,
-          "Duration": 8050
-        }
-      ]
+      "SpotifyUrl": "spotify:track:0nrRP2bk19rLc0orkWPQk2",
+      "Offset": 151000,
+      "Duration": 8050
     },
     {
-      "Question": "",
-      "Answer": "because I just want you here tonight (Mariah Carey - All I want for Christmas is you)",
-      "Tracks": [
-        {
-          "SpotifyUrl": "https://open.spotify.com/track/0bYg9bo50gSsH3LtXe2SQn?si=eefcbc4144714fb0",
-          "Offset": 118000,
-          "Duration": 8800
-        }
-      ]
+      "SpotifyUrl": "spotify:track:0bYg9bo50gSsH3LtXe2SQn",
+      "Offset": 118000,
+      "Duration": 8800
     },
     {
-      "Question": "",
-      "Answer": "but I'm just a poor boy, nobody loves me (Queen - Bohemian Rhapsody)",
-      "Tracks": [
-        {
-          "SpotifyUrl": "https://open.spotify.com/track/3z8h0TU7ReDPLIbEnYhWZb?si=e8258ee0f1dc4b5a",
-          "Offset": 193000,
-          "Duration": 9000
-        }
-      ]
+      "SpotifyUrl": "spotify:track:3z8h0TU7ReDPLIbEnYhWZb",
+      "Offset": 193000,
+      "Duration": 9000
     }
   ]
 }

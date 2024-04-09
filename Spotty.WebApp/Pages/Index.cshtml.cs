@@ -1,48 +1,34 @@
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Spotty.App;
+using Spotty.WebApp.App;
+using Spotty.WebApp.App.Quizzes;
 
 namespace Spotty.WebApp.Pages;
 
-public class IndexModel : PageModel
+[Authorize]
+public class IndexModel(ISpotifyClient spotifyClient, IQuizzes quizzes) : PageModel
 {
-    public bool IsLoggedIn { get; }
-    public ISpottyState SpottyState { get; }
+    public Quiz[] Quizzes { get; } = quizzes.GetQuizzes();
 
-    private ISpottyApp SpottyApp { get; }
+    private ISpotifyClient SpotifyClient { get; } = spotifyClient;
 
-    public IndexModel(ISpottyApp spottyApp, ISpottyState spottyState)
-    {
-        SpottyApp = spottyApp;
-        SpottyState = spottyState;
-
-        IsLoggedIn = SpottyApp.IsLoggedIn();
-    }
-
-    public async Task<IActionResult> OnGetAuthorizationCallbackAsync(string code)
-    {
-        await SpottyApp.Login(code);
-
-        return Redirect("/");
-    }
-
-    public IActionResult OnPostLogin()
-    {
-        if (!ModelState.IsValid)
-        {
-            return Page();
-        }
-
-        return Redirect(SpottyApp.GetUrlForLoginCode().AbsoluteUri);
-    }
-
-    public async Task OnPostPlay(string track, int offset, int duration)
+    public async Task OnGetPlay(string track, int offset)
     {
         if (!ModelState.IsValid)
         {
             return;
         }
 
-        await SpottyApp.PlayAndPause(track, offset, duration);
+        await SpotifyClient.Play(track, offset);
+    }
+
+    public async Task OnGetPause()
+    {
+        if (!ModelState.IsValid)
+        {
+            return;
+        }
+
+        await SpotifyClient.Pause();
     }
 }

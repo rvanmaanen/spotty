@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spotty.Tests", "Spotty.Tests\Spotty.Tests.csproj", "{0EEA04D6-722C-4FCA-ABEC-CC48BC947707}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B4F97C7F-4ABC-4B3A-8912-4B872390DF08}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
@@ -12,8 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.github\workflows\githubactionsbuilds.yml = .github\workflows\githubactionsbuilds.yml
 		README.md = README.md
 	EndProjectSection
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spotty", "Spotty\Spotty.csproj", "{AA2DD16F-EA67-4E35-A259-EE16BF1219ED}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spotty.WebApp", "Spotty.WebApp\Spotty.WebApp.csproj", "{9FD1013F-A48C-4EA7-97D0-2DE0ECBE56CE}"
 EndProject
@@ -31,14 +27,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0EEA04D6-722C-4FCA-ABEC-CC48BC947707}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0EEA04D6-722C-4FCA-ABEC-CC48BC947707}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0EEA04D6-722C-4FCA-ABEC-CC48BC947707}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0EEA04D6-722C-4FCA-ABEC-CC48BC947707}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AA2DD16F-EA67-4E35-A259-EE16BF1219ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA2DD16F-EA67-4E35-A259-EE16BF1219ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AA2DD16F-EA67-4E35-A259-EE16BF1219ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AA2DD16F-EA67-4E35-A259-EE16BF1219ED}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9FD1013F-A48C-4EA7-97D0-2DE0ECBE56CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9FD1013F-A48C-4EA7-97D0-2DE0ECBE56CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FD1013F-A48C-4EA7-97D0-2DE0ECBE56CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
