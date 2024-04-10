@@ -1,3 +1,4 @@
+using AspNet.Security.OAuth.Spotify;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Polly;
@@ -21,7 +22,7 @@ static WebApplicationBuilder CreateWebApplicationBuilder(string[] args)
     builder.Services.AddDatabaseDeveloperPageExceptionFilter();
     builder.Services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<SpottyDbContext>();
     builder.Services.AddRazorPages();
-    builder.Services.AddAuthentication()
+    builder.Services.AddAuthentication(SpotifyAuthenticationDefaults.AuthenticationScheme)
                     .AddSpotify(options =>
                     {
                         options.ClientId = configuration.GetValue<string>("Spotty:ClientId")!;
