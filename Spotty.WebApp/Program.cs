@@ -32,7 +32,7 @@ static WebApplicationBuilder CreateWebApplicationBuilder(string[] args)
                         options.Scope.Add("user-read-playback-state");
                     });
 
-    builder.Services.AddTransient<AccessTokenMiddleware>();
+    builder.Services.AddTransient<AccessTokenMessageHandler>();
 
     builder.Services
         .AddHttpClient("SpotifyApi", client =>
@@ -41,7 +41,7 @@ static WebApplicationBuilder CreateWebApplicationBuilder(string[] args)
             client.DefaultRequestHeaders.Remove("Accept");
             client.DefaultRequestHeaders.Add("Accept", "application/json");
         })
-        .AddHttpMessageHandler<AccessTokenMiddleware>()
+        .AddHttpMessageHandler<AccessTokenMessageHandler>()
         .AddTypedClient<ISpotifyClient>(httpClient => new SpotifyClient(httpClient))
         .AddPolicyHandler(HttpPolicyExtensions.HandleTransientHttpError()
                                               .WaitAndRetryAsync(3, retryAttempt => TimeSpan.FromMilliseconds(Math.Pow(2, retryAttempt) * 100)));
