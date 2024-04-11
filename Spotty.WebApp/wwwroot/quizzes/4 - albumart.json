@@ -1,53 +1,43 @@
 {
-  "Title": "Round 4: Album art - TODO",
+  "Title": "Round 4: AIlbum AIrt",
   "Tracks": [
     {
-      "SpotifyUrl": "spotify:track:6dGnYIeXmHdcikdzNNDMm2",
+      "SpotifyUrl": "spotify:track:2mvffzYUJ9Ld9xhsF5DUjU",
       "Offset": 0,
       "Duration": 30000
     },
     {
-      "SpotifyUrl": "spotify:track:2RsAajgo0g7bMCHxwH3Sk0",
+      "SpotifyUrl": "spotify:track:33EAXRL27QIjSVA5x6zEMq",
+      "Offset": 15000,
+      "Duration": 30000
+    },
+    {
+      "SpotifyUrl": "spotify:track:6fBwVe6udYdnRqwqo06if8",
       "Offset": 0,
       "Duration": 30000
     },
     {
-      "SpotifyUrl": "spotify:track:7Gx2q0ueNwvDp2BOZYGCMO",
+      "SpotifyUrl": "spotify:track:2MuWTIM3b0YEAskbeeFE1i",
       "Offset": 0,
       "Duration": 30000
     },
     {
-      "SpotifyUrl": "spotify:track:2OPmhk5vO4qiYE4LEAC9hs",
+      "SpotifyUrl": "spotify:track:0TvQLMecTE8utzoNmvXRbK",
       "Offset": 0,
       "Duration": 30000
     },
     {
-      "SpotifyUrl": "spotify:track:3PzsbWSQdLCKDLxn7YZfkM",
+      "SpotifyUrl": "spotify:track:3KsBkosKDPSB235IeoHOby",
       "Offset": 0,
       "Duration": 30000
     },
     {
-      "SpotifyUrl": "spotify:track:6L89mwZXSOwYl76YXfX13s",
-      "Offset": 0,
+      "SpotifyUrl": "spotify:track:61UuPxxYUvacEH6SHIK3sU",
+      "Offset": 10000,
       "Duration": 30000
     },
     {
-      "SpotifyUrl": "spotify:track:1u8c2t2Cy7UBoG4ArRcF5g",
-      "Offset": 0,
-      "Duration": 30000
-    },
-    {
-      "SpotifyUrl": "spotify:track:3di5hcvxxciiqwMH1jarhY",
-      "Offset": 0,
-      "Duration": 30000
-    },
-    {
-      "SpotifyUrl": "spotify:track:1zB4vmk8tFRmM9UULNzbLB",
-      "Offset": 0,
-      "Duration": 30000
-    },
-    {
-      "SpotifyUrl": "spotify:track:0SiywuOBRcynK0uKGWdCnn",
+      "SpotifyUrl": "spotify:track:4eDYMhIin1pSLIG96f1aD0",
       "Offset": 0,
       "Duration": 30000
     }
