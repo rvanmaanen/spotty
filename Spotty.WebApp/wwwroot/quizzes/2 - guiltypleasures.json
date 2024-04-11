@@ -1,0 +1,55 @@
+{
+	"Title": "Round 2: Guilty pleasures",
+  "Tracks": [
+    {
+      "SpotifyUrl": "spotify:track:4PTG3Z6ehGkBFwjybzWkR8",
+      "Offset": 15000,
+      "Duration": 12000
+    },
+    {
+      "SpotifyUrl": "spotify:track:1Je1IMUlBXcx1Fz0WE7oPT",
+      "Offset": 105000,
+      "Duration": 13000
+    },
+    {
+      "SpotifyUrl": "spotify:track:06c2L1gFGjdtqIDZ9lleH5",
+      "Offset": 51000,
+      "Duration": 17000
+    },
+    {
+      "SpotifyUrl": "spotify:track:05wIrZSwuaVWhcv5FfqeH0",
+      "Offset": 9000,
+      "Duration": 15000
+    },
+    {
+      "SpotifyUrl": "spotify:track:1QbOvACeYanja5pbnJbAmk",
+      "Offset": 36000,
+      "Duration": 10000
+    },
+    {
+      "SpotifyUrl": "spotify:track:2374M0fQpWi3dLnB54qaLX",
+      "Offset": 65000,
+      "Duration": 15000
+    },
+    {
+      "SpotifyUrl": "spotify:track:3APayTEWiUl9Ssep4BOXR2",
+      "Offset": 81000,
+      "Duration": 15000
+    },
+    {
+      "SpotifyUrl": "spotify:track:6suU8oBlW4O2pg88tOXgHo",
+      "Offset": 152000,
+      "Duration": 13000
+    },
+    {
+      "SpotifyUrl": "spotify:track:3ypMsqUwfNFMiooMLVHfkp",
+      "Offset": 132000,
+      "Duration": 12000
+    },
+    {
+      "SpotifyUrl": "spotify:track:5RKQ5NdjSh2QzD4MaunT91",
+      "Offset": 16000,
+      "Duration": 15000
+    }
+  ]
+}
