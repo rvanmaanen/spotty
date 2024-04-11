@@ -1,75 +1,55 @@
 {
-  "Title": "Round 7: The grand finale - TODO",
+  "Title": "Round 7: The grand finale",
   "Tracks": [
     {
-      "SpotifyUrl": "spotify:track:7FQSD5JjWqGtS1BaQQiT6V",
-      "Offset": 0,
-      "Duration": 10000
-    },
-    {
-      "SpotifyUrl": "spotify:track:6ocbgoVGwYJhOv1GgI9NsF",
-      "Offset": 45000,
-      "Duration": 10000
-    },
-    {
-      "SpotifyUrl": "spotify:track:7iAqvWLgZzXvH38lA06QZg",
-      "Offset": 45000,
-      "Duration": 10000
-    },
-    {
-      "SpotifyUrl": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+      "SpotifyUrl": "spotify:track:2VxeLyX666F8uXCJ0dZF8B",
       "Offset": 15000,
       "Duration": 10000
     },
     {
-      "SpotifyUrl": "spotify:track:48YkpE5enOln5c7jXSTuHL",
-      "Offset": 45000,
-      "Duration": 10000,
-      "Group": 1
-    },
-    {
-      "SpotifyUrl": "spotify:track:1L5tZi0izXsi5Kk5OJf4W0",
-      "Offset": 45000,
-      "Duration": 10000,
-      "Group": 1
-    },
-    {
-      "SpotifyUrl": "spotify:track:0NWPxcsf5vdjdiFUI8NgkP",
-      "Offset": 45000,
-      "Duration": 10000,
-      "Group": 1
-    },
-    {
-      "SpotifyUrl": "spotify:track:4J0DbyODwZJcmIAiTSJfMF",
-      "Offset": 5000,
-      "Duration": 10000,
-      "Group": 2
-    },
-    {
-      "SpotifyUrl": "spotify:track:7DBafN97VFAJjm3sMev3KG",
-      "Offset": 62000,
-      "Duration": 10000,
-      "Group": 2
-    },
-    {
-      "SpotifyUrl": "spotify:track:7ppPZa3TRUSGKaks9wH7VT",
-      "Offset": 70000,
-      "Duration": 10000
-    },
-    {
-      "SpotifyUrl": "spotify:track:6HjtZWIo0bh0KLD8Tq4ujR",
-      "Offset": 85000,
-      "Duration": 10000
-    },
-    {
-      "SpotifyUrl": "spotify:track:2LUVo82IKIpCuBNSaqF0G8",
-      "Offset": 7000,
+      "SpotifyUrl": "spotify:track:7o7E1nrHWncYY7PY94gCiX",
+      "Offset": 26000,
       "Duration": 12000
     },
     {
-      "SpotifyUrl": "spotify:track:7FkyQsWH9mmxoYLCNj4f8y",
-      "Offset": 130000,
-      "Duration": 10000
+      "SpotifyUrl": "spotify:track:2Nh3eH8jTlOQqOP3tgcmhk",
+      "Offset": 16000,
+      "Duration": 14000
+    },
+    {
+      "SpotifyUrl": "spotify:track:2uzyiRdvfNI5WxUiItv1y9",
+      "Offset": 51000,
+      "Duration": 25000
+    },
+    {
+      "SpotifyUrl": "spotify:track:0Bs0hUYxz7REyIHH7tRhL2",
+      "Offset": 18000,
+      "Duration": 15000
+    },
+    {
+      "SpotifyUrl": "spotify:track:0Z7nGFVCLfixWctgePsRk9",
+      "Offset": 29500,
+      "Duration": 9000
+    },
+    {
+      "SpotifyUrl": "spotify:track:095MMFhB9qxPx2VsmvjnUs",
+      "Offset": 52000,
+      "Duration": 15000
+    },
+    {
+      "SpotifyUrl": "spotify:track:0I3q5fE6wg7LIfHGngUTnV",
+      "Offset": 156000,
+      "Duration": 8000
+    },
+    {
+      "SpotifyUrl": "spotify:track:0n4bITAu0Y0nigrz3MFJMb",
+      "Offset": 36000,
+      "Duration": 12000
+    },
+    {
+      "SpotifyUrl": "spotify:track:3TnJ7M6in8Pb5EyGBUK02Y",
+      "Offset": 34000,
+      "Duration": 12000
     }
   ]
 }
