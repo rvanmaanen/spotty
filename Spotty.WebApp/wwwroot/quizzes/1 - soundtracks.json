@@ -4,52 +4,52 @@
     {
       "SpotifyUrl": "spotify:track:600HVBpzF1WfBdaRwbEvLz",
       "Offset": 7000,
-      "Duration": 15000
+      "Duration": 10000
     },
     {
       "SpotifyUrl": "spotify:track:39zu6JGd6tvRNsqyK78RLk",
       "Offset": 0,
-      "Duration": 15000
+      "Duration": 10000
     },
     {
       "SpotifyUrl": "spotify:track:0U6lmEhmRVptZAX7HrauqG",
       "Offset": 70000,
-      "Duration": 15000
+      "Duration": 10000
     },
     {
       "SpotifyUrl": "spotify:track:7iXYRR70wewzVYzWScm99j",
       "Offset": 30000,
-      "Duration": 15000
+      "Duration": 10000
     },
     {
       "SpotifyUrl": "spotify:track:3126iwAXVfyNQDP5iW2OAr",
       "Offset": 67000,
-      "Duration": 15000
+      "Duration": 10000
     },
     {
       "SpotifyUrl": "spotify:track:0C5o6yIrcFab0YS3GUYwp9",
       "Offset": 21000,
-      "Duration": 15000
+      "Duration": 10000
     },
     {
       "SpotifyUrl": "spotify:track:2ypUB5hMyJqO7dZKT2byP2",
       "Offset": 17000,
-      "Duration": 15000
+      "Duration": 10000
     },
     {
       "SpotifyUrl": "spotify:track:2avKuMN2QXkaG9vvHa2JLt",
-      "Offset": 56000,
-      "Duration": 15000
+      "Offset": 30000,
+      "Duration": 10000
     },
     {
       "SpotifyUrl": "spotify:track:0iOZM63lendWRTTeKhZBSC",
       "Offset": 8000,
-      "Duration": 15000
+      "Duration": 10000
     },
     {
       "SpotifyUrl": "spotify:track:60nZcImufyMA1MKQY3dcCH",
       "Offset": 0,
-      "Duration": 15000
+      "Duration": 10000
     }
   ]
 }
