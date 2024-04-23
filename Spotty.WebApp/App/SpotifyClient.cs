@@ -46,7 +46,32 @@ public class SpotifyClient(HttpClient httpClient) : ISpotifyClient
 
         var devicesResponse = JsonSerializer.Deserialize<DevicesResponse>(content) ?? throw new SpotifyException("Failed to deserialize /devices response");
 
-        return devicesResponse.GetCurrentDeviceId();
+        var devices = devicesResponse.devices;
+        if (devices.Length == 0)
+        {
+            throw new SpotifyException("No devices found, open Spotify somewhere");
+        }
+
+        var activeDevice = devices.SingleOrDefault(device => device.is_active);
+        if (activeDevice != null)
+        {
+            return activeDevice.id;
+        }
+
+        if (devices.Length == 1)
+        {
+            var body = new StringContent("{ \"device_ids\": [\"" + devices[0].id + "\"] }");
+            response = await _httpClient.PutAsync(_httpClient.BaseAddress, body);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                await GetContentAndThrowException(response);
+            }
+
+            return devices[0].id;
+        }
+
+        throw new SpotifyException("Multiple devices found, activate Spotify somewhere by playing a song");
     }
 
     private static async Task GetContentAndThrowException(HttpResponseMessage response)
