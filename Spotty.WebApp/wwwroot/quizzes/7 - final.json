@@ -7,9 +7,16 @@
       "Duration": 10000
     },
     {
-      "SpotifyUrl": "spotify:track:3BQHpFgAp4l80e1XslIjNI",
-      "Offset": 22000,
-      "Duration": 12000
+      "SpotifyUrl": "spotify:track:0Ya4rikdg46DCTfTy0ljSa",
+      "Offset": 5000,
+      "Duration": 10000,
+      "Group": 2
+    },
+    {
+      "SpotifyUrl": "spotify:track:3AJwUDP919kvQ9QcozQPxg",
+      "Offset": 30000,
+      "Duration": 10000,
+      "Group": 2
     },
     {
       "SpotifyUrl": "spotify:track:5QTxFnGygVM4jFQiBovmRo",
