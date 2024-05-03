@@ -4,8 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Polly;
 using Polly.Extensions.Http;
 using Spotty.WebApp;
-using Spotty.WebApp.App;
-using Spotty.WebApp.App.Quizzes;
+using Spotty.WebApp.App.Spotify;
+using Spotty.WebApp.App.Spotty;
 using Spotty.WebApp.Data;
 
 var builder = CreateWebApplicationBuilder(args);
@@ -47,7 +47,7 @@ static WebApplicationBuilder CreateWebApplicationBuilder(string[] args)
         .AddPolicyHandler(HttpPolicyExtensions.HandleTransientHttpError()
                                               .WaitAndRetryAsync(3, retryAttempt => TimeSpan.FromMilliseconds(Math.Pow(2, retryAttempt) * 100)));
 
-    builder.Services.AddTransient<IQuizzes>(sp => new Quizzes(builder.Environment.ContentRootPath));
+    builder.Services.AddSingleton<IEditionsProvider>(sp => new EditionsProvider(builder.Environment.ContentRootPath));
 
     return builder;
 }

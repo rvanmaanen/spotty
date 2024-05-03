@@ -1,5 +1,4 @@
-
-namespace Spotty.WebApp.App.Models;
+namespace Spotty.WebApp.App.Spotify.Models;
 
 public class Device
 {

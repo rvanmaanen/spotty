@@ -1,6 +1,6 @@
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Authentication;
-using Spotty.WebApp.App;
+using Spotty.WebApp.App.Spotify;
 
 namespace Spotty.WebApp;
 

@@ -1,4 +1,4 @@
-namespace Spotty.WebApp.App;
+namespace Spotty.WebApp.App.Spotify;
 
 public class SpotifyException : Exception
 {

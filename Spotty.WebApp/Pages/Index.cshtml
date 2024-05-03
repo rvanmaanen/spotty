@@ -18,11 +18,11 @@
 
 <div class="row">
     <div class="col-md-12">
-        @foreach (var quiz in Model.Quizzes.OrderBy(q => q.Title))
+        @foreach (var round in Model.Rounds.OrderBy(q => q.Title))
         {
-            @if (currentTitle != quiz.Title)
+            @if (currentTitle != round.Title)
             {
-                currentTitle = quiz.Title;
+                currentTitle = round.Title;
 
                 <div style="clear: both; margin-bottom: 10px;">
                   <h3 style="margin: 10px 0px 0px 0px; padding: 0;">@currentTitle</h3>
@@ -30,7 +30,7 @@
             }
 
             int i = 1;
-            @foreach (var track in quiz.Tracks)
+            @foreach (var track in round.Tracks)
             {
                 var questionButtonText = "Track " + i;
                 if(track.Group > 0)
@@ -40,6 +40,7 @@
 
                 <div style="float: left; margin: 0px 5px 10px 0px">
                     <form method="get" asp-page-handler="play">
+                        <input type="hidden" name="edition" value="@Model.Edition" />
                         <input type="hidden" name="track" value="@track.SpotifyUrl" />
                         <input type="hidden" name="offset" value="@track.Offset" />
                         <input type="hidden" name="duration" value="@track.Duration" />

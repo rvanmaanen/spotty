@@ -1,7 +1,7 @@
 using System.Text.Json;
-using Spotty.WebApp.App.Models;
+using Spotty.WebApp.App.Spotify.Models;
 
-namespace Spotty.WebApp.App;
+namespace Spotty.WebApp.App.Spotify;
 
 public class SpotifyClient(HttpClient httpClient) : ISpotifyClient
 {

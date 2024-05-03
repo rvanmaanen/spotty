@@ -5,5 +5,5 @@
 
 using System.Diagnostics.CodeAnalysis;
 
-[assembly: SuppressMessage("Naming", "CA1707:Identifiers should not contain underscores", Scope = "type", Target = "~T:Spotty.WebApp.App.Models.Device")]
-[assembly: SuppressMessage("Naming", "CA1707:Identifiers should not contain underscores", Scope = "type", Target = "~T:Spotty.WebApp.App.Models.DevicesResponse")]
+[assembly: SuppressMessage("Naming", "CA1707:Identifiers should not contain underscores", Scope = "type", Target = "~T:Spotty.WebApp.App.Spotify.Models.Device")]
+[assembly: SuppressMessage("Naming", "CA1707:Identifiers should not contain underscores", Scope = "type", Target = "~T:Spotty.WebApp.App.Spotify.Models.DevicesResponse")]

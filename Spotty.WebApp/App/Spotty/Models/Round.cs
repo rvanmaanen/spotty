@@ -1,6 +1,6 @@
-namespace Spotty.WebApp.App.Quizzes;
+namespace Spotty.WebApp.App.Spotty.Models;
 
-public class Quiz
+public class Round
 {
     public string Title { get; set; } = string.Empty;
 

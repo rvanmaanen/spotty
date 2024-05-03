@@ -32,4 +32,8 @@
   <ItemGroup>
     <Content Update="wwwroot\**" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\editions\2023-02-valentine-edition\" />
+  </ItemGroup>
 </Project>
