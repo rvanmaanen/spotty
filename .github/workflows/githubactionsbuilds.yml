@@ -44,7 +44,7 @@ jobs:
       - name: dotnet build and publish
         run: |
           dotnet build --configuration Release
-          dotnet publish --configuration Release --output Spotty --no-restore --os linux --arch x64 -p:PublishProfile=DefaultContainer
+          dotnet publish --configuration Release --no-restore --os linux --arch x64 -p:PublishProfile=DefaultContainer
 
       # Retag Docker image
 
