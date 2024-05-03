@@ -1,0 +1,55 @@
+{
+  "Title": "Round 6: Covers",
+  "Tracks": [
+    {
+      "SpotifyUrl": "spotify:track:72W6vmmnZtQjYS12UWiaNB",
+      "Offset": 102000,
+      "Duration": 16000
+    },
+    {
+      "SpotifyUrl": "spotify:track:5MYsvAONqcsIVOwu2HTQ3p",
+      "Offset": 45000,
+      "Duration": 15000
+    },
+    {
+      "SpotifyUrl": "spotify:track:6Iy5KEB1kO2BVOGnAgVV65",
+      "Offset": 107000,
+      "Duration": 14000
+    },
+    {
+      "SpotifyUrl": "spotify:track:6mW8R3ISA12gqlZVevDGAh",
+      "Offset": 37000,
+      "Duration": 18000
+    },
+    {
+      "SpotifyUrl": "spotify:track:2MAJJJu89ogKPctelr3F7f",
+      "Offset": 25000,
+      "Duration": 15000
+    },
+    {
+      "SpotifyUrl": "spotify:track:7A14uXHs9N57XoFMIDm1au",
+      "Offset": 52000,
+      "Duration": 12000
+    },
+    {
+      "SpotifyUrl": "spotify:track:1zd8h6ho3mlbhkZnADHVzP",
+      "Offset": 20000,
+      "Duration": 12000
+    },
+    {
+      "SpotifyUrl": "spotify:track:17CWwbHJ2ThM5MXj90ObrS",
+      "Offset": 78000,
+      "Duration": 12000
+    },
+    {
+      "SpotifyUrl": "spotify:track:06wKZYu5dpve2WRS5O34MI",
+      "Offset": 29000,
+      "Duration": 15000
+    },
+    {
+      "SpotifyUrl": "spotify:track:5h1TR0PBmbkFoxpcwKsYYh",
+      "Offset": 16000,
+      "Duration": 17000
+    }
+  ]
+}

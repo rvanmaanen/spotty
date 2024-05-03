@@ -1,0 +1,75 @@
+{
+  "Title": "Round 6: Final round",
+  "Tracks": [
+    {
+      "SpotifyUrl": "spotify:track:7FQSD5JjWqGtS1BaQQiT6V",
+      "Offset": 0,
+      "Duration": 10000
+    },
+    {
+      "SpotifyUrl": "spotify:track:6ocbgoVGwYJhOv1GgI9NsF",
+      "Offset": 45000,
+      "Duration": 10000
+    },
+    {
+      "SpotifyUrl": "spotify:track:7iAqvWLgZzXvH38lA06QZg",
+      "Offset": 45000,
+      "Duration": 10000
+    },
+    {
+      "SpotifyUrl": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+      "Offset": 15000,
+      "Duration": 10000
+    },
+    {
+      "SpotifyUrl": "spotify:track:48YkpE5enOln5c7jXSTuHL",
+      "Offset": 45000,
+      "Duration": 10000,
+      "Group": 1
+    },
+    {
+      "SpotifyUrl": "spotify:track:1L5tZi0izXsi5Kk5OJf4W0",
+      "Offset": 45000,
+      "Duration": 10000,
+      "Group": 1
+    },
+    {
+      "SpotifyUrl": "spotify:track:0NWPxcsf5vdjdiFUI8NgkP",
+      "Offset": 45000,
+      "Duration": 10000,
+      "Group": 1
+    },
+    {
+      "SpotifyUrl": "spotify:track:4J0DbyODwZJcmIAiTSJfMF",
+      "Offset": 5000,
+      "Duration": 10000,
+      "Group": 2
+    },
+    {
+      "SpotifyUrl": "spotify:track:7DBafN97VFAJjm3sMev3KG",
+      "Offset": 62000,
+      "Duration": 10000,
+      "Group": 2
+    },
+    {
+      "SpotifyUrl": "spotify:track:7ppPZa3TRUSGKaks9wH7VT",
+      "Offset": 70000,
+      "Duration": 10000
+    },
+    {
+      "SpotifyUrl": "spotify:track:6HjtZWIo0bh0KLD8Tq4ujR",
+      "Offset": 85000,
+      "Duration": 10000
+    },
+    {
+      "SpotifyUrl": "spotify:track:2LUVo82IKIpCuBNSaqF0G8",
+      "Offset": 7000,
+      "Duration": 12000
+    },
+    {
+      "SpotifyUrl": "spotify:track:7FkyQsWH9mmxoYLCNj4f8y",
+      "Offset": 130000,
+      "Duration": 10000
+    }
+  ]
+}

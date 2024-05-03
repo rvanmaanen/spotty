@@ -1,0 +1,62 @@
+{
+  "Title": "Round 7: The grand finale",
+  "Tracks": [
+    {
+      "SpotifyUrl": "spotify:track:2VxeLyX666F8uXCJ0dZF8B",
+      "Offset": 15000,
+      "Duration": 10000
+    },
+    {
+      "SpotifyUrl": "spotify:track:0Ya4rikdg46DCTfTy0ljSa",
+      "Offset": 5000,
+      "Duration": 10000,
+      "Group": 1
+    },
+    {
+      "SpotifyUrl": "spotify:track:3AJwUDP919kvQ9QcozQPxg",
+      "Offset": 30000,
+      "Duration": 10000,
+      "Group": 1
+    },
+    {
+      "SpotifyUrl": "spotify:track:5QTxFnGygVM4jFQiBovmRo",
+      "Offset": 13000,
+      "Duration": 14000
+    },
+    {
+      "SpotifyUrl": "spotify:track:2uzyiRdvfNI5WxUiItv1y9",
+      "Offset": 51000,
+      "Duration": 25000
+    },
+    {
+      "SpotifyUrl": "spotify:track:0Bs0hUYxz7REyIHH7tRhL2",
+      "Offset": 18000,
+      "Duration": 15000
+    },
+    {
+      "SpotifyUrl": "spotify:track:0Z7nGFVCLfixWctgePsRk9",
+      "Offset": 29500,
+      "Duration": 9000
+    },
+    {
+      "SpotifyUrl": "spotify:track:095MMFhB9qxPx2VsmvjnUs",
+      "Offset": 52000,
+      "Duration": 15000
+    },
+    {
+      "SpotifyUrl": "spotify:track:1eMhNaN4a92qoidBbkQCmG",
+      "Offset": 53500,
+      "Duration": 15000
+    },
+    {
+      "SpotifyUrl": "spotify:track:0n4bITAu0Y0nigrz3MFJMb",
+      "Offset": 36000,
+      "Duration": 12000
+    },
+    {
+      "SpotifyUrl": "spotify:track:3TnJ7M6in8Pb5EyGBUK02Y",
+      "Offset": 34000,
+      "Duration": 12000
+    }
+  ]
+}

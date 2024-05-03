@@ -1,0 +1,35 @@
+{
+  "Title": "Round 3: Spring is in the air",
+  "Tracks": [
+    {
+      "SpotifyUrl": "spotify:track:7FwBtcecmlpc1sLySPXeGE",
+      "Offset": 22000,
+      "Duration": 11000
+    },
+    {
+      "SpotifyUrl": "spotify:track:3v0ouAltce6AySBTYBP3pk",
+      "Offset": 0,
+      "Duration": 12000
+    },
+    {
+      "SpotifyUrl": "spotify:track:00Mb3DuaIH1kjrwOku9CGU",
+      "Offset": 13000,
+      "Duration": 11000
+    },
+    {
+      "SpotifyUrl": "spotify:track:4eFQWH7aVImqUcYSVMhgSz",
+      "Offset": 28000,
+      "Duration": 12000
+    },
+    {
+      "SpotifyUrl": "spotify:track:2F1fnE1a8zQCogM6jJifHH",
+      "Offset": 21000,
+      "Duration": 11000
+    },
+    {
+      "SpotifyUrl": "spotify:track:1v2ECI79z8S4PQv9xYwIfU",
+      "Offset": 73000,
+      "Duration": 15000
+    }
+  ]
+}

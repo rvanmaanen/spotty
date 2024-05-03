@@ -1,0 +1,55 @@
+{
+  "Title": "Round 4: Album Art",
+  "Tracks": [
+    {
+      "SpotifyUrl": "spotify:track:6dGnYIeXmHdcikdzNNDMm2",
+      "Offset": 0,
+      "Duration": 30000
+    },
+    {
+      "SpotifyUrl": "spotify:track:2RsAajgo0g7bMCHxwH3Sk0",
+      "Offset": 0,
+      "Duration": 30000
+    },
+    {
+      "SpotifyUrl": "spotify:track:7Gx2q0ueNwvDp2BOZYGCMO",
+      "Offset": 0,
+      "Duration": 30000
+    },
+    {
+      "SpotifyUrl": "spotify:track:2OPmhk5vO4qiYE4LEAC9hs",
+      "Offset": 0,
+      "Duration": 30000
+    },
+    {
+      "SpotifyUrl": "spotify:track:3PzsbWSQdLCKDLxn7YZfkM",
+      "Offset": 0,
+      "Duration": 30000
+    },
+    {
+      "SpotifyUrl": "spotify:track:6L89mwZXSOwYl76YXfX13s",
+      "Offset": 0,
+      "Duration": 30000
+    },
+    {
+      "SpotifyUrl": "spotify:track:1u8c2t2Cy7UBoG4ArRcF5g",
+      "Offset": 0,
+      "Duration": 30000
+    },
+    {
+      "SpotifyUrl": "spotify:track:3di5hcvxxciiqwMH1jarhY",
+      "Offset": 0,
+      "Duration": 30000
+    },
+    {
+      "SpotifyUrl": "spotify:track:1zB4vmk8tFRmM9UULNzbLB",
+      "Offset": 0,
+      "Duration": 30000
+    },
+    {
+      "SpotifyUrl": "spotify:track:0SiywuOBRcynK0uKGWdCnn",
+      "Offset": 0,
+      "Duration": 30000
+    }
+  ]
+}

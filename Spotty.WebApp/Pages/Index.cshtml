@@ -6,61 +6,49 @@
     string currentTitle = "";
 }
 
+<script type="text/javascript">
+    var urlParams = new URLSearchParams(window.location.search);
+    var duration = urlParams.get('duration')
+    if (duration) {
+        setTimeout(function() {
+            fetch('/pause');
+        }, duration);
+    }
+</script>
+
 <div class="row">
     <div class="col-md-12">
-        @if (!Model.IsLoggedIn)
+        @foreach (var round in Model.Rounds.OrderBy(q => q.Title))
         {
-            <form method="post" asp-page-handler="login">
-                <button type="submit" id="submit" style="margin: 5px 0 0 0;">Login</button>
-            </form>
-        }
-        else
-        {
-            @foreach (var quiz in Model.SpottyState.GetQuizzes())
+            @if (currentTitle != round.Title)
             {
-                int i = 1;
-                
-                @if (currentTitle != quiz.Title)
+                currentTitle = round.Title;
+
+                <div style="clear: both; margin-bottom: 10px;">
+                  <h3 style="margin: 10px 0px 0px 0px; padding: 0;">@currentTitle</h3>
+                </div>
+            }
+
+            int i = 1;
+            @foreach (var track in round.Tracks)
+            {
+                var questionButtonText = "";
+                if(track.Group > 0)
                 {
-                    currentTitle = quiz.Title;
-
-                    <div style="clear: both; margin-bottom: 10px;">
-                      <h3 style="margin: 10px 0px 0px 0px; padding: 0;">@currentTitle.Substring(0, currentTitle.IndexOf("!"))</h3>
-                      <span>@currentTitle.Substring(currentTitle.IndexOf("! ") + 2)</span>
-                    </div>
+                    questionButtonText += $"Group {track.Group}: ";
                 }
+                questionButtonText += "Track " + i;
 
-                @foreach (var question in quiz.Questions)
-                {
-                    var questionText = question.Question;
-                    int j = 1;
-
-                    @if (!string.IsNullOrWhiteSpace(question.Question))
-                    {
-                      <div style="clear: both"><h4 style="margin: 0px; padding: 0px;">@questionText</h4></div>
-                    }
-
-                    @foreach (var track in question.Tracks)
-                    {
-                        var questionButtonText = "Question " + i;
-                        if (question.Tracks.Count > 1)
-                        {
-                            questionButtonText += "." + j;
-                        }
-
-                        <div style="float: left; margin: 0px 5px 10px 0px">
-                            <form method="post" asp-page-handler="play">
-                                <input type="hidden" name="track" value="@track.SpotifyUrl" />
-                                <input type="hidden" name="offset" value="@track.Offset" />
-                                <input type="hidden" name="duration" value="@track.Duration" />
-                                <button type="submit">@questionButtonText</button>
-                            </form>
-                        </div>
-                        j++;
-                    }
-
-                    i++;
-                }
+                <div style="float: left; margin: 0px 5px 10px 0px">
+                    <form method="get" asp-page-handler="play">
+                        <input type="hidden" name="edition" value="@Model.Edition" />
+                        <input type="hidden" name="track" value="@track.SpotifyUrl" />
+                        <input type="hidden" name="offset" value="@track.Offset" />
+                        <input type="hidden" name="duration" value="@track.Duration" />
+                        <button type="submit">@questionButtonText</button>
+                    </form>
+                </div>
+                i++;
             }
         }
     </div>

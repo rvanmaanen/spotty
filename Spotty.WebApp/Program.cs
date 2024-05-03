@@ -1,7 +1,12 @@
+using AspNet.Security.OAuth.Spotify;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Polly;
 using Polly.Extensions.Http;
-using Spotty.App;
-using Spotty.Client;
+using Spotty.WebApp;
+using Spotty.WebApp.App.Spotify;
+using Spotty.WebApp.App.Spotty;
+using Spotty.WebApp.Data;
 
 var builder = CreateWebApplicationBuilder(args);
 
@@ -12,34 +17,37 @@ static WebApplicationBuilder CreateWebApplicationBuilder(string[] args)
     var builder = WebApplication.CreateBuilder(args);
     var configuration = builder.Configuration;
 
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+    builder.Services.AddDbContext<SpottyDbContext>(options => options.UseSqlite(connectionString));
+    builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+    builder.Services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<SpottyDbContext>();
     builder.Services.AddRazorPages();
+    builder.Services.AddAuthentication(SpotifyAuthenticationDefaults.AuthenticationScheme)
+                    .AddSpotify(options =>
+                    {
+                        options.ClientId = configuration.GetValue<string>("Spotty:ClientId")!;
+                        options.ClientSecret = configuration.GetValue<string>("Spotty:ClientSecret")!;
+                        options.CallbackPath = "/signin-oidc";
+                        options.SaveTokens = true;
+                        options.Scope.Add("user-modify-playback-state");
+                        options.Scope.Add("user-read-playback-state");
+                    });
 
-    var policyRegistry = builder.Services.AddPolicyRegistry();
-    policyRegistry.Add(
-        "retry",
-        HttpPolicyExtensions
-            .HandleTransientHttpError()
-            .WaitAndRetryAsync(
-                3,
-                retryAttempt => TimeSpan.FromMilliseconds(Math.Pow(2, retryAttempt) * 100)));
+    builder.Services.AddTransient<AccessTokenMessageHandler>();
 
     builder.Services
-        .AddHttpClient("SpotifyHttpClient", client =>
+        .AddHttpClient("SpotifyApi", client =>
         {
+            client.BaseAddress = new Uri("https://api.spotify.com/v1/me/player");
             client.DefaultRequestHeaders.Remove("Accept");
             client.DefaultRequestHeaders.Add("Accept", "application/json");
         })
+        .AddHttpMessageHandler<AccessTokenMessageHandler>()
         .AddTypedClient<ISpotifyClient>(httpClient => new SpotifyClient(httpClient))
-        .AddPolicyHandlerFromRegistry("retry");
+        .AddPolicyHandler(HttpPolicyExtensions.HandleTransientHttpError()
+                                              .WaitAndRetryAsync(3, retryAttempt => TimeSpan.FromMilliseconds(Math.Pow(2, retryAttempt) * 100)));
 
-    builder.Services.AddSingleton<ISpottyApp>(serviceProvider => new SpottyApp(
-        configuration.GetValue<string>("Spotty:ClientId") ?? throw new ArgumentException("Spotty:ClientId is not configured"),
-        configuration.GetValue<string>("Spotty:ClientSecret") ?? throw new ArgumentException("Spotty:ClientSecret is not configured"),
-        new Uri(configuration.GetValue<string>("Spotty:SpotifyAuthenticationCallbackUrl") ?? throw new ArgumentException("Spotty:SpotifyAuthenticationCallbackUrl is not configured")),
-        serviceProvider.GetRequiredService<ISpotifyClient>()
-    ));
-
-    builder.Services.AddTransient<ISpottyState>(sp => new SpottyState(builder.Environment.ContentRootPath));
+    builder.Services.AddSingleton<IEditionsProvider>(sp => new EditionsProvider(builder.Environment.ContentRootPath));
 
     return builder;
 }
@@ -48,20 +56,21 @@ static void ConfigurePipeline(WebApplicationBuilder builder)
 {
     var app = builder.Build();
 
-    if (!app.Environment.IsDevelopment())
+    if (app.Environment.IsDevelopment())
+    {
+        app.UseMigrationsEndPoint();
+    }
+    else
     {
         app.UseExceptionHandler("/Error");
-        app.UseHsts(); // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+        app.UseHsts();
     }
 
     app.UseHttpsRedirection();
     app.UseStaticFiles();
-
     app.UseRouting();
-
+    app.UseAuthentication();
     app.UseAuthorization();
-
     app.MapRazorPages();
-
     app.Run();
 }

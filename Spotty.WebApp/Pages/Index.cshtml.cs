@@ -1,48 +1,62 @@
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Spotty.App;
+using Spotty.WebApp.App.Spotify;
+using Spotty.WebApp.App.Spotty;
+using Spotty.WebApp.App.Spotty.Models;
 
 namespace Spotty.WebApp.Pages;
 
-public class IndexModel : PageModel
+[Authorize]
+public class IndexModel(ISpotifyClient spotifyClient, IEditionsProvider editionsProvider) : PageModel
 {
-    public bool IsLoggedIn { get; }
-    public ISpottyState SpottyState { get; }
-
-    private ISpottyApp SpottyApp { get; }
-
-    public IndexModel(ISpottyApp spottyApp, ISpottyState spottyState)
+    public string Edition
     {
-        SpottyApp = spottyApp;
-        SpottyState = spottyState;
-
-        IsLoggedIn = SpottyApp.IsLoggedIn();
-    }
-
-    public async Task<IActionResult> OnGetAuthorizationCallbackAsync(string code)
-    {
-        await SpottyApp.Login(code);
-
-        return Redirect("/");
-    }
-
-    public IActionResult OnPostLogin()
-    {
-        if (!ModelState.IsValid)
+        get
         {
-            return Page();
-        }
+            if (HttpContext.Request.Query.ContainsKey("edition"))
+            {
+                return HttpContext.Request.Query["edition"].Single()!;
+            }
 
-        return Redirect(SpottyApp.GetUrlForLoginCode().AbsoluteUri);
+            return editionsProvider.GetLatestEditionName();
+        }
     }
 
-    public async Task OnPostPlay(string track, int offset, int duration)
+    public Round[] Rounds
+    {
+        get
+        {
+            if(Edition != "")
+            {
+                if (editionsProvider.GetEditions().TryGetValue(Edition, out var edition))
+                {
+                    return edition;
+                }
+            }
+
+            return []; 
+        }
+    }
+
+    private ISpotifyClient SpotifyClient { get; } = spotifyClient;
+
+    public async Task OnGetPlay(string track, int offset)
     {
         if (!ModelState.IsValid)
         {
             return;
         }
 
-        await SpottyApp.PlayAndPause(track, offset, duration);
+        await SpotifyClient.Play(track, offset);
+    }
+
+    public async Task OnGetPause()
+    {
+        if (!ModelState.IsValid)
+        {
+            return;
+        }
+
+        await SpotifyClient.Pause();
     }
 }
