@@ -1,0 +1,40 @@
+{
+	"Title": "Round 2: Finish the lyrics",
+  "Tracks": [
+    {
+      "SpotifyUrl": "spotify:track:1AFCfG17PPf29y3xEW9uuR",
+      "Offset": 109000,
+      "Duration": 4500
+    },
+    {
+      "SpotifyUrl": "spotify:track:5T0FdfvcOuzsRsQhcbWAH8",
+      "Offset": 88000,
+      "Duration": 5000
+    },
+    {
+      "SpotifyUrl": "spotify:track:37dPgiT3cY5XFbG3Ldq7zv",
+      "Offset": 43000,
+      "Duration": 7500
+    },
+    {
+      "SpotifyUrl": "spotify:track:2XU0oxnq2qxCpomAAuJY8K",
+      "Offset": 113500,
+      "Duration": 7500
+    },
+    {
+      "SpotifyUrl": "spotify:track:0nrRP2bk19rLc0orkWPQk2",
+      "Offset": 151000,
+      "Duration": 8050
+    },
+    {
+      "SpotifyUrl": "spotify:track:0bYg9bo50gSsH3LtXe2SQn",
+      "Offset": 118000,
+      "Duration": 8800
+    },
+    {
+      "SpotifyUrl": "spotify:track:3z8h0TU7ReDPLIbEnYhWZb",
+      "Offset": 193000,
+      "Duration": 9000
+    }
+  ]
+}

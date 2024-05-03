@@ -32,11 +32,12 @@
             int i = 1;
             @foreach (var track in round.Tracks)
             {
-                var questionButtonText = "Track " + i;
+                var questionButtonText = "";
                 if(track.Group > 0)
                 {
-                    questionButtonText += $" ({track.Group})";
+                    questionButtonText += $"Group {track.Group}: ";
                 }
+                questionButtonText += "Track " + i;
 
                 <div style="float: left; margin: 0px 5px 10px 0px">
                     <form method="get" asp-page-handler="play">
